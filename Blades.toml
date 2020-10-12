@@ -4,8 +4,6 @@ keywords = ""
 image = ""
 theme = ""
 
-output_dir = "docs"
-
 [author]
 name = "Maros Grego"
 
