@@ -1,0 +1,13 @@
+<div id="topbar">
+    <div id="logo">
+        <span class="blades-logo"></span>{{#site}}{{title}}{{/site}}
+    </div>
+    <input id="burger-check" class="control-button" type="checkbox">
+    <nav id="nav">
+      {{#index}}<a class="navlink{{#active}} active{{/active}}" href="{{permalink}}">home</a>
+      {{#subsections}}
+      <a class="navlink {{#active}} active{{/active}}" href="{{permalink}}">{{title}}</a>
+      {{/subsections}}{{/index}}
+      <a class="navlink" target="_blank" href="{{#site}}{{#extra}}{{repository}}{{/extra}}{{/site}}">contribute</a>
+    </nav>
+</div>

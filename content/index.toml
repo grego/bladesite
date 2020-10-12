@@ -1,0 +1,41 @@
+title = "Index"
+sort_by_weight = true
+content = """
+<code class="highlighted">
+
+**bla**zing fast
+ **de**ad simple
+  **s**tatic site generator
+
+</code>
+
+Blades is made to do one job and do it well - generate HTML files from the provided
+content using the provided templates.  
+Thanks to the amazing [Ramhorns](https://github.com/maciejhirsz/ramhorns) templating engine,
+[zero-copy](https://serde.rs/lifetimes.html#borrowing-data-in-a-derived-impl) deserialisation
+and [rayon](https://github.com/rayon-rs/rayon) parallel iterators, it renders the whole site in
+milliseconds, possibly up to [10 times](https://github.com/grego/ssg-bench) faster than other generators like Hugo.
+
+It's made for easy setup and use. A static site generator should be a no brainer.
+It uses [mustache](https://mustache.github.io/mustache.5.html) templates with extremely minimal
+and obvious syntax (really, like 7 rules!), while providing the necessary building blocks
+to let you focus on your content.
+
+You may categorise your pages into taxonomies (like categories or tags), use the usual features
+like pagination or breadcrumbs and even generate image galleries.  
+Sitemap and RSS feed are automatically rendered.  
+All done without hassle, faster than you blink.
+
+## Why not _`blades`_?
+Unlike other monolithic generators, Blades is modest in its scope. All it does is generating your site.
+It doesn't do any fancy stuff like transpiling Haskell to minified Javascript, or ever
+watching the site for changes. For that, you can use a dedicated tool like
+[caretaker](https://github.com/grego/caretaker).
+
+Nevertheless, if you have a feature request or ran into some issue using Blades, please submit an
+[issue](https://github.com/grego/blades). It is a hobby project, so any contribution
+is welcome! `:)`
+
+## Why _`blades`_?
+They shave the [mustache](https://mustache.github.io/mustache.5.html) off.
+"""

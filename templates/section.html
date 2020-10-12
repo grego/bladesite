@@ -1,0 +1,8 @@
+{{>head.html}}
+<div id="navwrap">
+    <nav id="pagesnav" class="shadowed">{{#pages}}
+        <a class="pagelink" href="{{path}}/{{slug}}.html">{{title}}</a>
+    {{/pages}}</nav>
+</div>
+<div class="full"><article id="content">{{content}}</article></div>
+{{>foot.html}}

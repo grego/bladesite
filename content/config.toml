@@ -1,0 +1,57 @@
+title = "Configuration"
+weight = 1
+content = """
+The site can be configured in the file `Blades.toml` in its root directory. There, the following
+variables can be set (all optional, default values shown):
+
+<code class="highlighted">
+
+*# Title of the site*
+**title** = ""
+*# URL which the site is expected to be accessed through*
+**url** = ""
+*# Name of the folder where theme templates and assets shall be loaded from,*
+*# located in the themes directory (see below)*
+**theme** = ""
+**description** = "" 
+**keywords** = ""
+**image** = ""
+
+*# Generate sitemap*
+**sitemap** = true
+*# Generate RSS feed*
+**rss** = true
+*# Generate Atom feed*
+**atom** = true
+*# Generate taxonomies that were not explicitly defined in this config*
+**implicit_taxonomies** = true
+*# When no date for a page is specified, use the file creation date*
+**dates_of_creation** = true
+
+*# A directory where the content is loaded from*
+**content_dir** = "content"
+*# A directory where the theme is loaded from*
+**theme_dir** = "themes"
+*# A directory where the content is rendered to*
+**output_dir** = "public"
+*# A subdirectory of the output directory where the assets are copied to*
+**assets** = "assets"
+
+[**author**]
+**name** = ""
+**uri** = ""
+**email** = ""
+**avatar** = ""
+
+*# A table of tables where you can specify some data about taxonomies*
+[**taxonomies**]
+*# Example with default values:*
+*#tags = { name = "", description = "", template = "taxonomy.html", key_template = "taxonomy_key.html", paginate_by = ∞, sort_by_weight = false }*
+*# If provided, 'paginate_by' must be a positive integer*
+
+*# Any "key = value" of any type can be used here for templates*
+[**extra**]
+
+</code>
+
+"""

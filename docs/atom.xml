@@ -1,0 +1,513 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+    <title>Blades</title>
+    <link rel="related" href="" />
+    <id></id>
+    
+    <author>
+        <name>Maros Grego</name>
+        
+        
+    </author>
+    
+    <subtitle></subtitle>
+    <generator>razor</generator>
+    <updated>2020-10-12T21:41:40Z</updated>
+
+
+    <entry>
+        <title>Index</title>
+        <link rel="alternate" href="/" />
+        <id></id>
+        <summary></summary>
+        <content><code class="highlighted">
+<p><strong>bla</strong>zing fast
+<strong>de</strong>ad simple
+<strong>s</strong>tatic site generator</p>
+</code>
+<p>Blades is made to do one job and do it well - generate HTML files from the provided
+content using the provided templates.<br />
+Thanks to the amazing <a href="https://github.com/maciejhirsz/ramhorns">Ramhorns</a> templating engine,
+<a href="https://serde.rs/lifetimes.html#borrowing-data-in-a-derived-impl">zero-copy</a> deserialisation
+and <a href="https://github.com/rayon-rs/rayon">rayon</a> parallel iterators, it renders the whole site in
+milliseconds, possibly up to <a href="https://github.com/grego/ssg-bench">10 times</a> faster than other generators like Hugo.</p>
+<p>It's made for easy setup and use. A static site generator should be a no brainer.
+It uses <a href="https://mustache.github.io/mustache.5.html">mustache</a> templates with extremely minimal
+and obvious syntax (really, like 7 rules!), while providing the necessary building blocks
+to let you focus on your content.</p>
+<p>You may categorise your pages into taxonomies (like categories or tags), use the usual features
+like pagination or breadcrumbs and even generate image galleries.<br />
+Sitemap and RSS feed are automatically rendered.<br />
+All done without hassle, faster than you blink.</p>
+<h2>Why not <em><code>blades</code></em>?</h2>
+<p>Unlike other monolithic generators, Blades is modest in its scope. All it does is generating your site.
+It doesn't do any fancy stuff like transpiling Haskell to minified Javascript, or ever
+watching the site for changes. For that, you can use a dedicated tool like
+<a href="https://github.com/grego/caretaker">caretaker</a>.</p>
+<p>Nevertheless, if you have a feature request or ran into some issue using Blades, please submit an
+<a href="https://github.com/grego/blades">issue</a>. It is a hobby project, so any contribution
+is welcome! <code>:)</code></p>
+<h2>Why <em><code>blades</code></em>?</h2>
+<p>They shave the <a href="https://mustache.github.io/mustache.5.html">mustache</a> off.</p>
+</content>
+        <updated>2020-10-01T14:41:12Z</updated>
+    </entry>
+    
+
+    <entry>
+        <title>Getting started</title>
+        <link rel="alternate" href="/getting_started.html" />
+        <id>/getting_started</id>
+        <summary></summary>
+        <content><p>If you have the Rust toolchain installed, you can install Blades from <a href="https://crates.io/crates/blades">Crates.io</a></p>
+<pre><code class="language-bash">cargo install blades
+</code></pre>
+<p>If you would like to have it included in your favourite package repository, <a href="https://github.com/grego/blades">submit an issue</a>.</p>
+<p>Then, you can run the executable <code>blades</code> with the following subcommands:</p>
+<ul>
+<li><code>init</code>: Initialise the site in the current directory, creating the basic files and folders</li>
+<li><code>build</code>: Build the site according to config, content, templates and themes in the currend directory</li>
+<li><code>colocate</code>: Move the assets from the &quot;assets&quot; directory and from the theme, if one is used, into the output directory</li>
+<li><code>all</code>: Build the site and colocate the assets</li>
+<li><code>lazy</code>: Build the site and (colocate assets only if the theme was switched) [default]</li>
+<li><code>new</code>: Create a new page</li>
+</ul>
+<h2>Themes</h2>
+<p>When you specify a theme in the <a href="config.html">config</a>, templates and assets from the theme are used.
+Every site that doesn't use a theme can be used as a theme for another site.
+Therefore, the easiest way to use a theme is to just clone the corresponding theme's repository
+into the <code>themes</code> directory. A list of available themes can be found <a href="/themes">here</a>.</p>
+<p>To overwrite the theme, simply use the files in the <code>templates</code>, resp. <code>assets</code> subdirectories of the
+page root directory.</p>
+<h2>Assets</h2>
+<p>All the files from the <code>assets</code> directory (and from the theme) are moved into the directory
+specified in the <a href="config.html">config</a>, which is emptied before. This is a subdirectory of the
+output directory (defaults to <code>assets</code>).</p>
+<p>Blades takes of the pages it rendered before and if some of them is deleted, the corresponding
+files in the output directory will be deleted, too. The other files in the output directory
+are left intact. This way, you can place anything in the output directory and (as long as its name
+differs from all the page names and it's not in the assets subdirectory), Blades won't touch it.</p>
+<h2>Meta</h2>
+<p>Blades renders <a href="https://www.sitemaps.org">sitemap</a> (into <code>sitemap.xml</code>), <a href="https://en.wikipedia.org/wiki/Atom_(Web_standard)">Atom</a> (into <code>atom.xml</code>)
+and <a href="https://en.wikipedia.org/wiki/RSS">RSS</a> (into <code>rss.xml</code>) feeds, unless explicitly disabled in the <a href="config.html">config</a>.</p>
+<h2>Contribution</h2>
+<p>If you found a bug or would like to see some feature in Blades, you are the most welcome to submit an issue
+or a pull request! Likewise if you found something in this documentation not clear or imprecise.</p>
+</content>
+        <updated>2020-10-04T14:12:45Z</updated>
+    </entry>
+    
+
+    <entry>
+        <title>Configuration</title>
+        <link rel="alternate" href="/config.html" />
+        <id>/config</id>
+        <summary></summary>
+        <content><p>The site can be configured in the file <code>Blades.toml</code> in its root directory. There, the following
+variables can be set (all optional, default values shown):</p>
+<code class="highlighted">
+<p><em># Title of the site</em>
+<strong>title</strong> = &quot;&quot;
+<em># URL which the site is expected to be accessed through</em>
+<strong>url</strong> = &quot;&quot;
+<em># Name of the folder where theme templates and assets shall be loaded from,</em>
+<em># located in the themes directory (see below)</em>
+<strong>theme</strong> = &quot;&quot;
+<strong>description</strong> = &quot;&quot; 
+<strong>keywords</strong> = &quot;&quot;
+<strong>image</strong> = &quot;&quot;</p>
+<p><em># Generate sitemap</em>
+<strong>sitemap</strong> = true
+<em># Generate RSS feed</em>
+<strong>rss</strong> = true
+<em># Generate Atom feed</em>
+<strong>atom</strong> = true
+<em># Generate taxonomies that were not explicitly defined in this config</em>
+<strong>implicit_taxonomies</strong> = true
+<em># When no date for a page is specified, use the file creation date</em>
+<strong>dates_of_creation</strong> = true</p>
+<p><em># A directory where the content is loaded from</em>
+<strong>content_dir</strong> = &quot;content&quot;
+<em># A directory where the theme is loaded from</em>
+<strong>theme_dir</strong> = &quot;themes&quot;
+<em># A directory where the content is rendered to</em>
+<strong>output_dir</strong> = &quot;public&quot;
+<em># A subdirectory of the output directory where the assets are copied to</em>
+<strong>assets</strong> = &quot;assets&quot;</p>
+<p>[<strong>author</strong>]
+<strong>name</strong> = &quot;&quot;
+<strong>uri</strong> = &quot;&quot;
+<strong>email</strong> = &quot;&quot;
+<strong>avatar</strong> = &quot;&quot;</p>
+<p><em># A table of tables where you can specify some data about taxonomies</em>
+[<strong>taxonomies</strong>]
+<em># Example with default values:</em>
+<em>#tags = { name = &quot;&quot;, description = &quot;&quot;, template = &quot;taxonomy.html&quot;, key_template = &quot;taxonomy_key.html&quot;, paginate_by = ∞, sort_by_weight = false }</em>
+<em># If provided, 'paginate_by' must be a positive integer</em></p>
+<p><em># Any &quot;key = value&quot; of any type can be used here for templates</em>
+[<strong>extra</strong>]</p>
+</code>
+</content>
+        <updated>2020-10-04T14:14:20Z</updated>
+    </entry>
+    
+
+    <entry>
+        <title>Pages</title>
+        <link rel="alternate" href="/pages.html" />
+        <id>/pages</id>
+        <summary></summary>
+        <content><p>Blades loads all the <a href="https://toml.io">TOML</a> files (with the <code>.toml</code> extension) from the content directory
+specified in the <a href="config.html">config</a> (defaults to <code>content</code>). In these files, the page content
+and metadata are provided. They are then rendered using the provided <a href="templates.html">templates</a>.</p>
+<p>When the file is called <code>index.toml</code>, the corresponding page is called <strong>section</strong>. The rendered page (<code>index.html</code>) is displayed
+when the user browses to the parent URL. They can use some additional data in templates,
+such as their subpages and subsections. Other TOML files are treated as standard pages.</p>
+<p>In pages, these variables can be specified (everything optional, default values shown):</p>
+<code class="highlighted">
+<p><em># Title of the page</em>
+<strong>title</strong> = &quot;&quot;
+<em># Date when the page was created</em>
+<strong>date</strong> = None
+<em># date = 2020-09-08</em></p>
+<p><em># An image representing the page</em>
+<strong>image</strong> = &quot;&quot;
+<em># A brief summary of the page content</em>
+<strong>summary</strong> = &quot;&quot;
+<em># The main content of the page</em>
+<em># <a href="https://commonmark.org/">CommonMark</a> markdown can be used here</em>
+<strong>content</strong> = &quot;&quot;&quot;
+&quot;&quot;&quot;</p>
+<p><em># A template to render this page with.</em>
+<em># If none is specified, the one specified in the <a href="#sections">parent section</a> is used</em>
+<strong>template</strong> = &quot;&quot;
+<em># A weight of the page, used if a collection this page is in is sorted by weight</em>
+<strong>weight</strong> = 0
+<em># A priority of this page for SEO, in the range of 0-1</em>
+<strong>priority</strong> = 0.5
+<em># Hide the page from the list of its parent's subpages or subsections</em>
+<strong>hidden</strong> = false</p>
+<p><em># A template to render the gallery pictures with</em>
+<strong>gallery_template</strong> = &quot;gallery.html&quot;</p>
+<p><em># A list of pictures associated with this page</em>
+<em># Each will be rendered into a separate gallery page</em>
+[[<strong>pictures</strong>]]
+<em># Id string of the picture, used for the generated URL in the gallery page</em>
+<em># MANDATORY for every picture used!</em>
+<strong>pid</strong> = &quot;&quot;
+<em># An associated caption of the picture</em>
+<em># <a href="https://commonmark.org/">CommonMark</a> markdown can be used here</em>
+<strong>caption</strong> = &quot;&quot;
+<em># An alternative text displayed when the image can't be loaded of for accessibility</em>
+<strong>alt</strong> = &quot;&quot;
+<em># File name of the image</em>
+<strong>file</strong> = &quot;&quot;
+<em># Date and time of when the image was taken</em>
+<strong>taken</strong> = None
+<em># Repeat for every picture</em></p>
+<p><em># A map of lists to classify this page with</em>
+[<strong>taxonomies</strong>]
+<em># For example:</em>
+<em># tags = [&quot;blades&quot;, &quot;documentation&quot;]</em></p>
+<p><em># Any &quot;key = value&quot; of any type can be used here for templates</em>
+[<strong>extra</strong>]</p>
+</code>
+<h2>Sections</h2>
+<p>For pages that are sections, you can additionally specify these variables:</p>
+<code id="sections" class="highlighted">
+<p><em># A number of pages to paginate by, if this number is exceeded</em>
+<em># If provided, must be a positive integer</em>
+<strong>paginate_by</strong> = ∞
+<em># A template to render every subpage with (unless it specifies another template)</em>
+<strong>page_template</strong> = &quot;page.html&quot;
+<em># A template to render every subsection with (unless it specifies another template)</em>
+<strong>section_template</strong> = &quot;section.html&quot;
+<em># Sort subpages and subsetions by their provided weight, low to high</em>
+<em># By default, they are sorted by their date, newer to older</em>
+<strong>sort_by_weight</strong> = false</p>
+</code>
+<h2>Not sections</h2>
+<p>For pages that are not sections, you can additionally specify these variables
+(defaults are suggested):</p>
+<code class="highlighted">
+<p><em># The path in the output directory this page is rendered into</em>
+<strong>path</strong> = {{ parent directory of the page within the content directory }}
+<em># The file name this page is rendered into, without the .html extension</em>
+<strong>slug</strong> = {{ file name without the extension }}</p>
+</code>
+</content>
+        <updated>2020-10-08T09:19:32Z</updated>
+    </entry>
+    
+
+    <entry>
+        <title>Templates</title>
+        <link rel="alternate" href="/templates.html" />
+        <id>/templates</id>
+        <summary></summary>
+        <content><p>Blades uses <a href="https://mustache.github.io/mustache.5.html">mustache</a> templates with the amazingly fast
+<a href="https://github.com/maciejhirsz/ramhorns">Ramhorns</a> engine. While their syntax is extremely simple
+(and can be learned in a few minutes), they are surprisingly expressive.</p>
+<p>The templates are loaded from the <code>templates</code> subdirectory, or secondarily from the <code>$theme_dir/$theme/templates</code>
+directory if a theme is specified in the <a href="config.html">config</a>.
+Here is the list of variables at your disposal, all with their type specified.</p>
+<p>These variables are common for all pages:</p>
+<code class="highlighted">
+<p><em>// The data of the whole site</em>
+<strong>site</strong>: <a href="#site">Site</a>
+<em>// Main page in the site</em>
+<strong>index</strong>: <a href="#page">Page</a>
+<em>// A dictionary of all the taxonomies used in the site</em>
+<strong>classification</strong>: Map&lt;string, <a href="#taxonomy">Taxonomy</a>&gt;</p>
+</code>
+<h2>Page</h2>
+<p>When rendering a page, these variables are available:</p>
+<code id="page" class="highlighted">
+<p><em>// Title of the page</em>
+<strong>title</strong>: string
+<em>// Date when the page was created</em>
+<strong>date</strong>: Option&lt;<a href="#datetime">DateTime</a>&gt;
+<em>// Image representing the page</em>
+<strong>image</strong>: string
+<em>// A brief summary of the page</em>
+<strong>summary</strong>: string
+<em>// The main content of the page</em>
+<strong>content</strong>: string</p>
+<p><em>// The full link of the page, with the site URL included</em>
+<strong>permalink</strong>: string
+<em>// The path of the page, beginning with <code>/</code>, without the last segment</em>
+<em>// When rendered as section ({{#path}}), it acts as a list of <a href="#ancestors">Ancestors</a></em>
+<strong>path</strong>: string
+<em>// The trailing segment of this page's URL</em>
+<em>// Without the .html extension</em>
+<em>// For sections, it's the folder name rather than <code>index</code></em>
+<strong>slug</strong>: string</p>
+<p><em>// A list of classifications for each of the provided taxonomies</em>
+<strong>taxonomies</strong>: Map&lt;string, List&lt;string&gt;&gt;
+<em>// A list of pictures provided by this page</em>
+<strong>pictures</strong>: List&lt;<a href="#picture">Picture</a>&gt;</p>
+<p><em>// Is this page a section?</em>
+<strong>is_section</strong>: bool
+<em>// Is the page hidden from the list of its parent's subpages and subsections?</em>
+<strong>hidden</strong>: bool
+<em>// A priority of this page for SEO, in the range of 0-1</em>
+<strong>priority</strong>: float</p>
+<p><em>// The page one level up in the hierarchy (for the index page it's itself)</em>
+<strong>parent</strong>: <a href="#page">Page</a>
+<em>// The previous page on this level, if any</em>
+<strong>previous</strong>: Option&lt;<a href="#page">Page</a>&gt;
+<em>// The next page in this level, if any</em>
+<strong>next</strong>: Option&lt;<a href="#page">Page</a>&gt;
+<em>// A list of all the subpages (empty if not section)</em>
+<strong>pages</strong>: List&lt;<a href="#page">Page</a>&gt;
+<em>// A list of all the subsections (empty if not section)</em>
+<strong>subsections</strong>: List&lt;<a href="#page">Page</a>&gt;
+<em>// Available when the subpages are paginated</em>
+<strong>pagination</strong>: Option&lt;<a href="#pagination">Pagination</a>&gt;</p>
+<p><em>// The user provided values of any type</em>
+<strong>extra</strong>: Map&lt;string, Any&gt;
+<em>// Marks whether this page is the active one</em>
+<em>// Can be used to highlight the current page in a list of pages</em>
+<strong>active</strong>: bool</p>
+</code>
+<h3>Pagination</h3>
+<p>When the pagination is available, you can use these variables in the pagination section
+(<code>{{#pagination}} ... {{/pagination}}</code>):</p>
+<code id="pagination" class="highlighted">
+<p><em>// Number of the current page in the paginated pages</em>
+<strong>current</strong>: integer
+<em>// Number of the previous page in the paginated pages</em>
+<em>// This is also its slug</em>
+<strong>previous</strong>: Option&lt;integer&gt;
+<em>// Number of the next page in the paginated pages</em>
+<em>// This is also its slug</em>
+<strong>next</strong>: Option&lt;integer&gt;
+<em>// Number of the paginated pages</em>
+<strong>length</strong>: integer</p>
+</code>
+<h3>Ancestors</h3>
+<p>When the page path is used as a section (<code>{{#path}} ... {{/path}}</code>), it is interpreted
+as a list of ancestors. This makes making breadcrumbs possible.
+For the path segments, the following are available:</p>
+<code id="ancestors" class="highlighted">
+<p><em>// Name of the current path segment</em>
+<strong>name</strong>: string
+<em>// The full path up to this segment</em>
+<strong>full</strong>: string</p>
+</code>
+<h3>DateTime</h3>
+<p>When the date is available, you can use these variables in the datetime section
+(<code>{{#date}} ... {{/date}}</code>), roughly corresponding to <a href="https://strftime.org/">strftime</a>:</p>
+<code id="picture" class="highlighted">
+<p><em>// Year</em>
+<strong>y</strong>: integer
+<em>// Month</em>
+<strong>m</strong>: integer
+<em>// Day, 0-padded</em>
+<strong>d</strong>: integer
+<em>// Day, space-padded</em>
+<strong>e</strong>: integer
+<em>// Hour</em>
+<strong>H</strong>: integer
+<em>// Minute</em>
+<strong>M</strong>: integer
+<em>// Second</em>
+<strong>S</strong>: integer
+<em>// First 3 letters of the English month name</em>
+<strong>b</strong>: string
+<em>// First 3 letters of the English weekday name</em>
+<strong>a</strong>: string</p>
+</code>
+<h3>Picture</h3>
+<p>When pictures are available, you can use these variables in the pictures section
+(<code>{{#pictures}} ... {{/pictures}}</code> for a list of them):</p>
+<code id="picture" class="highlighted">
+<p><em># Id string of the picture, used for the generated URL in the gallery page</em>
+<strong>pid</strong>: string
+<em># An associated caption of the picture</em>
+<strong>caption</strong>: string
+<em># An alternative text displayed when the image can't be loaded of for accessibility</em>
+<strong>alt</strong>: string
+<em># File name of the image</em>
+<strong>file</strong>: string
+<em># Date and time of when the image was taken</em>
+<strong>taken</strong>: Option&lt;<a href="#datetime">DateTime</a>&gt;
+<em>// The full link of the picture, with the site URL included</em>
+<strong>permalink</strong>: string</p>
+</code>
+<h2>Gallery</h2>
+<p>When a page contains come picture, the gallery is created. The page of each photo in the gallery
+gets the following variables:</p>
+<code id="gallery" class="highlighted">
+<p><em>// The current picture</em>
+<strong>current</strong>: <a href="#picture">Picture</a>
+<em>// The previous picture in the list (the last one for the first one)</em>
+<strong>previous</strong>: <a href="#picture">Picture</a>
+<em>// The next picture in the list (the first one for the last one)</em>
+<strong>next</strong>: <a href="#picture">Picture</a>
+<em>// The parent page, from which this gallery is generated</em>
+<strong>parent</strong>: <a href="#page">Page</a></p>
+</code>
+<h2>Taxonomy</h2>
+<p>Each taxonomy that is rendered gets the following variables:</p>
+<code id="taxonomy" class="highlighted">
+<p><em>// Full name of the taxonomy</em>
+<strong>title</strong>: string
+<em>// A short name of the taxonomy, used in the URL</em>
+<strong>slug</strong>: string
+<em>// A brief description of the taxonomy</em>
+<strong>description</strong>: string
+<em>// A list of keys used in this taxonomy and their corresponding pages</em>
+<strong>keys</strong>: List&lt;<a href="#keypages">KeyPages</a>&gt;</p>
+</code>
+<h3>Key pages</h3>
+<p>When keys in the taxonomy are available, you can use these variables in the keys section
+(<code>{{#keys}} ... {{/keys}}</code> for a list of them):</p>
+<code id="keypages" class="highlighted">
+<p><em>// Name of this key (also used in the URL of the key page)</em>
+<strong>key</strong>: str
+<em>// All the pages with this key in this taxonomy</em>
+<strong>pages</strong>: List&lt;<a href="#page">Page</a>&gt;</p>
+</code>
+<h2>Taxonomy key</h2>
+<p>When rendering a page of a single taxonomy key, these variables are available:</p>
+<code id="taxonomy-key" class="highlighted">
+<p><em>// Name of this key (also used in the URL)</em>
+<strong>title</strong>: string
+<em>// The parent taxonomy where this key belongs to</em>
+<strong>taxonomy</strong>: <a href="#taxonomy">Taxonomy</a>
+<em>// The pages using this key</em>
+<strong>pages</strong>: List&lt;<a href="#page">Page</a>&gt;
+<em>// Optional pagination, if enabled for this taxonomy</em>
+<strong>pagination</strong>: Option&lt;<a href="#pagination">Pagination</a>&gt;</p>
+</code>
+<h2>Site</h2>
+<p>The data of the whole site, available for every page in the site section
+(<code>{{#site}} ... {{/site}}</code>):</p>
+<code id="site" class="highlighted">
+<p><em>// The main title of the site</em>
+<strong>title</strong>: string
+<em>// The main URL of the site</em>
+<strong>url</strong>: string
+<strong>description</strong>: string
+<strong>keywords</strong>: string
+<em>// A representative image of the site</em>
+<strong>image</strong>: string
+<em>// Info about the author of the site</em>
+<strong>author</strong>: <a href="#author">Author</a></p>
+<p><em>// Path of the site where the assets are moved to</em>
+<strong>assets</strong>: string
+<em>// Is sitemap rendered?</em>
+<strong>sitemap</strong>: bool
+<em>// Is atom feed rendered?</em>
+<strong>atom</strong>: bool
+<em>// Is RSS feed rendered?</em>
+<strong>rss</strong>: bool
+<em>// Are taxonomies not explicitly defined in the config, but used in some page rendered?</em>
+<strong>implicit_taxonomies</strong>: bool
+<em>// Are pages without date provided assigned the date of file creation?</em>
+<strong>dates_of_creation</strong>: bool</p>
+<p><em>// The user provided values of any type</em>
+<strong>extra</strong>: Map&lt;string, Any&gt;</p>
+</code>
+<h3>Author</h3>
+<p>Info about the site author, available as a subsection of <a href="#site">site</a>
+(<code>{{#site}}{{#author}} ... {{/author}}{{/site}}</code>):</p>
+<code id="author" class="highlighted">
+<p><strong>name</strong>: string
+<strong>uri</strong>: string
+<strong>email</strong>: string
+<strong>avatar</strong>: string</p>
+</code>
+</content>
+        <updated>2020-10-08T13:38:44Z</updated>
+    </entry>
+    
+
+    <entry>
+        <title>Themes</title>
+        <link rel="alternate" href="/themes/" />
+        <id>/themes</id>
+        <summary></summary>
+        <content><p>Any site that doesn't use a theme can be used as a theme for another site.<br />
+To contribute your own, submit a PR to the <a href="https://github.com/grego/blades-themes">themes repository</a>.</p>
+</content>
+        <updated>2020-10-12T16:54:34Z</updated>
+    </entry>
+    
+
+    <entry>
+        <title>casper</title>
+        <link rel="alternate" href="/themes/casper.html" />
+        <id>/themes/casper</id>
+        <summary></summary>
+        <content><p>A clean blog theme, loosely based on the old Ghost.io default, but without JavaScript</p>
+</content>
+        <updated>2020-10-12T17:19:55Z</updated>
+    </entry>
+    
+
+    <entry>
+        <title>after-dark</title>
+        <link rel="alternate" href="/themes/after-dark.html" />
+        <id>/themes/after-dark</id>
+        <summary></summary>
+        <content><p>Secure and accessible dark theme</p>
+</content>
+        <updated>2020-10-12T17:19:49Z</updated>
+    </entry>
+    
+
+    <entry>
+        <title>BLADE.386</title>
+        <link rel="alternate" href="/themes/BLADE.html" />
+        <id>/themes/BLADE</id>
+        <summary></summary>
+        <content><p>For people who like the MS-DOS æsthetics</p>
+</content>
+        <updated>2020-10-12T17:11:39Z</updated>
+    </entry>
+    
+
+</feed>

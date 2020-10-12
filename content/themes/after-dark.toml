@@ -1,0 +1,7 @@
+title = "after-dark"
+image = "img/after-dark.png"
+content = "Secure and accessible dark theme"
+
+[extra]
+preview = "https://blades-after-dark.netlify.app/"
+repository = "https://github.com/grego/after-dark"

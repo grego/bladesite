@@ -1,0 +1,142 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html" charset="UTF-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+	<meta charset="utf-8">
+	
+	<title>Pages | Blades</title>
+	<meta name="author" content="Maros Grego">
+	
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+	<link href="/rss.xml" rel="alternate" title="Blades" type="application/rss+xml">
+	<link href="/atom.xml" rel="alternate" title="Blades" type="application/atom+xml">
+	<link href="/assets/style.css" media="screen, projection" rel="stylesheet" type="text/css">
+    
+	<!-- This tag is necessary since the modern browsers, the pinnacle of human engineering,
+	     trigger CSS transitions on page load without script tags present (Chromium issue 332189, same on FF),
+	     This bug is present since 2012. -->
+	<script src="/doesnt_exist.js"></script>
+</head>
+<body>
+<div id="topbar">
+    <div id="logo">
+        <span class="blades-logo"></span>Blades
+    </div>
+    <input id="burger-check" class="control-button" type="checkbox">
+    <nav id="nav">
+      <a class="navlink" href="/">home</a>
+      
+      <a class="navlink " href="/themes/">Themes</a>
+      
+      <a class="navlink" target="_blank" href="https://github.com/grego/blades">contribute</a>
+    </nav>
+</div>
+<div id="container">
+<div id="navwrap">
+    <nav id="pagesnav" class="shadowed">
+        <a class="pagelink " href="/getting_started.html">Getting started</a>
+    
+        <a class="pagelink " href="/config.html">Configuration</a>
+    
+        <a class="pagelink active" href="/pages.html">Pages</a>
+    
+        <a class="pagelink " href="/templates.html">Templates</a>
+    </nav>
+</div>
+<div class="full">
+    <h1 id="pagetitle">Pages</h1>
+    <article id="content"><p>Blades loads all the <a href="https://toml.io">TOML</a> files (with the <code>.toml</code> extension) from the content directory
+specified in the <a href="config.html">config</a> (defaults to <code>content</code>). In these files, the page content
+and metadata are provided. They are then rendered using the provided <a href="templates.html">templates</a>.</p>
+<p>When the file is called <code>index.toml</code>, the corresponding page is called <strong>section</strong>. The rendered page (<code>index.html</code>) is displayed
+when the user browses to the parent URL. They can use some additional data in templates,
+such as their subpages and subsections. Other TOML files are treated as standard pages.</p>
+<p>In pages, these variables can be specified (everything optional, default values shown):</p>
+<code class="highlighted">
+<p><em># Title of the page</em>
+<strong>title</strong> = &quot;&quot;
+<em># Date when the page was created</em>
+<strong>date</strong> = None
+<em># date = 2020-09-08</em></p>
+<p><em># An image representing the page</em>
+<strong>image</strong> = &quot;&quot;
+<em># A brief summary of the page content</em>
+<strong>summary</strong> = &quot;&quot;
+<em># The main content of the page</em>
+<em># <a href="https://commonmark.org/">CommonMark</a> markdown can be used here</em>
+<strong>content</strong> = &quot;&quot;&quot;
+&quot;&quot;&quot;</p>
+<p><em># A template to render this page with.</em>
+<em># If none is specified, the one specified in the <a href="#sections">parent section</a> is used</em>
+<strong>template</strong> = &quot;&quot;
+<em># A weight of the page, used if a collection this page is in is sorted by weight</em>
+<strong>weight</strong> = 0
+<em># A priority of this page for SEO, in the range of 0-1</em>
+<strong>priority</strong> = 0.5
+<em># Hide the page from the list of its parent's subpages or subsections</em>
+<strong>hidden</strong> = false</p>
+<p><em># A template to render the gallery pictures with</em>
+<strong>gallery_template</strong> = &quot;gallery.html&quot;</p>
+<p><em># A list of pictures associated with this page</em>
+<em># Each will be rendered into a separate gallery page</em>
+[[<strong>pictures</strong>]]
+<em># Id string of the picture, used for the generated URL in the gallery page</em>
+<em># MANDATORY for every picture used!</em>
+<strong>pid</strong> = &quot;&quot;
+<em># An associated caption of the picture</em>
+<em># <a href="https://commonmark.org/">CommonMark</a> markdown can be used here</em>
+<strong>caption</strong> = &quot;&quot;
+<em># An alternative text displayed when the image can't be loaded of for accessibility</em>
+<strong>alt</strong> = &quot;&quot;
+<em># File name of the image</em>
+<strong>file</strong> = &quot;&quot;
+<em># Date and time of when the image was taken</em>
+<strong>taken</strong> = None
+<em># Repeat for every picture</em></p>
+<p><em># A map of lists to classify this page with</em>
+[<strong>taxonomies</strong>]
+<em># For example:</em>
+<em># tags = [&quot;blades&quot;, &quot;documentation&quot;]</em></p>
+<p><em># Any &quot;key = value&quot; of any type can be used here for templates</em>
+[<strong>extra</strong>]</p>
+</code>
+<h2>Sections</h2>
+<p>For pages that are sections, you can additionally specify these variables:</p>
+<code id="sections" class="highlighted">
+<p><em># A number of pages to paginate by, if this number is exceeded</em>
+<em># If provided, must be a positive integer</em>
+<strong>paginate_by</strong> = ∞
+<em># A template to render every subpage with (unless it specifies another template)</em>
+<strong>page_template</strong> = &quot;page.html&quot;
+<em># A template to render every subsection with (unless it specifies another template)</em>
+<strong>section_template</strong> = &quot;section.html&quot;
+<em># Sort subpages and subsetions by their provided weight, low to high</em>
+<em># By default, they are sorted by their date, newer to older</em>
+<strong>sort_by_weight</strong> = false</p>
+</code>
+<h2>Not sections</h2>
+<p>For pages that are not sections, you can additionally specify these variables
+(defaults are suggested):</p>
+<code class="highlighted">
+<p><em># The path in the output directory this page is rendered into</em>
+<strong>path</strong> = {{ parent directory of the page within the content directory }}
+<em># The file name this page is rendered into, without the .html extension</em>
+<strong>slug</strong> = {{ file name without the extension }}</p>
+</code>
+</article>
+    <div id="prevnext">
+        <a href="/config.html">&lt;- Configuration</a>
+        
+        <a href="/templates.html">Templates -&gt;</a>
+    </div>
+</div>
+</div>
+<footer id="footer">
+    Generated with <strong><span class="blades-logo"></span>blades</strong>
+    (of course - check the <a href="https://github.com/grego/bladesite" target="_blank">source</a>).
+    No JavaScript used.
+</footer>
+</body>
+</html>

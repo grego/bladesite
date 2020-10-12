@@ -1,0 +1,23 @@
+{{>head.html}}
+<div class="full">
+    <article id="content">
+        <h1>{{title}}</h1>
+        {{#extra}}{{#author}}by <strong>{{author}}</strong>{{/author}}{{/extra}}
+        <img src="{{#site}}{{url}}{{/site}}/{{image}}" />
+        {{content}}
+        {{#extra}}{{#preview}}<p><a href="{{preview}}" target="_blank">Live demo</a></p>{{/preview}}
+        {{#repository}}<p>To use this theme, simply clone it into your <code>themes</code> directory:</p>
+        <code class="highlighted">cd themes && git clone {{repository}}</code>
+        <p>Or use it as a submodule:</p>
+        <code class="highlighted">cd themes && git submodule add {{repository}}</code>
+        <p>Then, set it in your <code><a href="{{#site}}{{url}}{{/site}}/config.html">Blades.toml</a></code>:</p>
+        <code class="highlighted"><strong>theme</strong> = {{title}}</code>
+        <p><a href="{{repository}}" target="_blank">Repository</a></p>{{/repository}}{{/extra}}
+    </article>
+    <div id="prevnext">
+        {{#previous}}<a href="{{path}}/{{slug}}.html">&lt;- {{title}}</a>{{/previous}}
+        {{^previous}}<a></a>{{/previous}}
+        {{#next}}<a href="{{path}}/{{slug}}.html">{{title}} -&gt;</a>{{/next}}
+    </div>
+</div>
+{{>foot.html}}

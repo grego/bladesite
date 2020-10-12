@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0">
+    <channel>
+    
+        <title>Blades</title>
+        <link></link>
+        <description></description>
+        <ttl>1440</ttl>
+        <generator>razor</generator>
+        <pubDate>Mon, 12 Oct 2020 21:41:40 GMT</pubDate>
+        
+    
+    
+        <item>
+            <title>Index</title>
+            <link>/</link>
+            <description></description>
+            <pubDate>Thu, 01 Oct 2020 14:41:12 GMT</pubDate>
+        </item>
+        
+    
+        <item>
+            <title>Getting started</title>
+            <link>/getting_started.html</link>
+            <description></description>
+            <pubDate>Sun, 04 Oct 2020 14:12:45 GMT</pubDate>
+        </item>
+        
+    
+        <item>
+            <title>Configuration</title>
+            <link>/config.html</link>
+            <description></description>
+            <pubDate>Sun, 04 Oct 2020 14:14:20 GMT</pubDate>
+        </item>
+        
+    
+        <item>
+            <title>Pages</title>
+            <link>/pages.html</link>
+            <description></description>
+            <pubDate>Thu, 08 Oct 2020 09:19:32 GMT</pubDate>
+        </item>
+        
+    
+        <item>
+            <title>Templates</title>
+            <link>/templates.html</link>
+            <description></description>
+            <pubDate>Thu, 08 Oct 2020 13:38:44 GMT</pubDate>
+        </item>
+        
+    
+        <item>
+            <title>Themes</title>
+            <link>/themes/</link>
+            <description></description>
+            <pubDate>Mon, 12 Oct 2020 16:54:34 GMT</pubDate>
+        </item>
+        
+    
+        <item>
+            <title>casper</title>
+            <link>/themes/casper.html</link>
+            <description></description>
+            <pubDate>Mon, 12 Oct 2020 17:19:55 GMT</pubDate>
+        </item>
+        
+    
+        <item>
+            <title>after-dark</title>
+            <link>/themes/after-dark.html</link>
+            <description></description>
+            <pubDate>Mon, 12 Oct 2020 17:19:49 GMT</pubDate>
+        </item>
+        
+    
+        <item>
+            <title>BLADE.386</title>
+            <link>/themes/BLADE.html</link>
+            <description></description>
+            <pubDate>Mon, 12 Oct 2020 17:11:39 GMT</pubDate>
+        </item>
+        
+    
+    </channel>
+</rss>

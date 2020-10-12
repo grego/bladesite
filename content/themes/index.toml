@@ -1,0 +1,7 @@
+title = "Themes"
+template = "themes.html"
+page_template = "theme.html"
+content = """
+Any site that doesn't use a theme can be used as a theme for another site.  
+To contribute your own, submit a PR to the [themes repository](https://github.com/grego/blades-themes).
+"""

@@ -1,0 +1,24 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html" charset="UTF-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+	<meta charset="utf-8">
+	
+	<title>{{title}}{{#current}}{{pid}}{{/current}} | {{#site}}{{title}}</title>
+	{{#author}}<meta name="author" content="{{name}}">{{/author}}
+	{{#description}}<meta name="description" content="{{description}}">{{/description}}
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+	<link href="{{url}}/rss.xml" rel="alternate" title="{{title}}" type="application/rss+xml">
+	<link href="{{url}}/atom.xml" rel="alternate" title="{{title}}" type="application/atom+xml">
+	<link href="{{url}}/{{assets}}/style.css" media="screen, projection" rel="stylesheet" type="text/css">
+    {{/site}}
+	<!-- This tag is necessary since the modern browsers, the pinnacle of human engineering,
+	     trigger CSS transitions on page load without script tags present (Chromium issue 332189, same on FF),
+	     This bug is present since 2012. -->
+	<script src="/doesnt_exist.js"></script>
+</head>
+<body>
+{{>navigation.html}}
+<div id="container">
