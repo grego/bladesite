@@ -1,0 +1,278 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html" charset="UTF-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+	<meta charset="utf-8">
+	
+	<title>Templates | Blades</title>
+	<meta name="author" content="Maros Grego">
+	
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+	<link href="/rss.xml" rel="alternate" title="Blades" type="application/rss+xml">
+	<link href="/atom.xml" rel="alternate" title="Blades" type="application/atom+xml">
+	<link href="/assets/style.css" media="screen, projection" rel="stylesheet" type="text/css">
+    
+	<!-- This tag is necessary since the modern browsers, the pinnacle of human engineering,
+	     trigger CSS transitions on page load without script tags present (Chromium issue 332189, same on FF),
+	     This bug is present since 2012. -->
+	<script src="/doesnt_exist.js"></script>
+</head>
+<body>
+<div id="topbar">
+    <div id="logo">
+        <span class="blades-logo"></span>Blades
+    </div>
+    <input id="burger-check" class="control-button" type="checkbox">
+    <nav id="nav">
+      <a class="navlink" href="/">home</a>
+      
+      <a class="navlink " href="/themes/">Themes</a>
+      
+      <a class="navlink" target="_blank" href="https://github.com/grego/blades">contribute</a>
+    </nav>
+</div>
+<div id="container">
+<div id="navwrap">
+    <nav id="pagesnav" class="shadowed">
+        <a class="pagelink " href="/getting_started.html">Getting started</a>
+    
+        <a class="pagelink " href="/config.html">Configuration</a>
+    
+        <a class="pagelink " href="/pages.html">Pages</a>
+    
+        <a class="pagelink active" href="/templates.html">Templates</a>
+    </nav>
+</div>
+<div class="full">
+    <h1 id="pagetitle">Templates</h1>
+    <article id="content"><p>Blades uses <a href="https://mustache.github.io/mustache.5.html">mustache</a> templates with the amazingly fast
+<a href="https://github.com/maciejhirsz/ramhorns">Ramhorns</a> engine. While their syntax is extremely simple
+(and can be learned in a few minutes), they are surprisingly expressive.</p>
+<p>The templates are loaded from the <code>templates</code> subdirectory, or secondarily from the <code>$theme_dir/$theme/templates</code>
+directory if a theme is specified in the <a href="config.html">config</a>.
+Here is the list of variables at your disposal, all with their type specified.</p>
+<p>These variables are common for all pages:</p>
+<code class="highlighted">
+<p><em>// The data of the whole site</em>
+<strong>site</strong>: <a href="#site">Site</a>
+<em>// Main page in the site</em>
+<strong>index</strong>: <a href="#page">Page</a>
+<em>// A dictionary of all the taxonomies used in the site</em>
+<strong>classification</strong>: Map&lt;string, <a href="#taxonomy">Taxonomy</a>&gt;</p>
+</code>
+<h2>Page</h2>
+<p>When rendering a page, these variables are available:</p>
+<code id="page" class="highlighted">
+<p><em>// Title of the page</em>
+<strong>title</strong>: string
+<em>// Date when the page was created</em>
+<strong>date</strong>: Option&lt;<a href="#datetime">DateTime</a>&gt;
+<em>// Image representing the page</em>
+<strong>image</strong>: string
+<em>// A brief summary of the page</em>
+<strong>summary</strong>: string
+<em>// The main content of the page</em>
+<strong>content</strong>: string</p>
+<p><em>// The full link of the page, with the site URL included</em>
+<strong>permalink</strong>: string
+<em>// The path of the page, beginning with <code>/</code>, without the last segment</em>
+<em>// When rendered as section ({{#path}}), it acts as a list of <a href="#ancestors">Ancestors</a></em>
+<strong>path</strong>: string
+<em>// The trailing segment of this page's URL</em>
+<em>// Without the .html extension</em>
+<em>// For sections, it's the folder name rather than <code>index</code></em>
+<strong>slug</strong>: string</p>
+<p><em>// A list of classifications for each of the provided taxonomies</em>
+<strong>taxonomies</strong>: Map&lt;string, List&lt;string&gt;&gt;
+<em>// A list of pictures provided by this page</em>
+<strong>pictures</strong>: List&lt;<a href="#picture">Picture</a>&gt;</p>
+<p><em>// Is this page a section?</em>
+<strong>is_section</strong>: bool
+<em>// Is the page hidden from the list of its parent's subpages and subsections?</em>
+<strong>hidden</strong>: bool
+<em>// A priority of this page for SEO, in the range of 0-1</em>
+<strong>priority</strong>: float</p>
+<p><em>// The page one level up in the hierarchy (for the index page it's itself)</em>
+<strong>parent</strong>: <a href="#page">Page</a>
+<em>// The previous page on this level, if any</em>
+<strong>previous</strong>: Option&lt;<a href="#page">Page</a>&gt;
+<em>// The next page in this level, if any</em>
+<strong>next</strong>: Option&lt;<a href="#page">Page</a>&gt;
+<em>// A list of all the subpages (empty if not section)</em>
+<strong>pages</strong>: List&lt;<a href="#page">Page</a>&gt;
+<em>// A list of all the subsections (empty if not section)</em>
+<strong>subsections</strong>: List&lt;<a href="#page">Page</a>&gt;
+<em>// Available when the subpages are paginated</em>
+<strong>pagination</strong>: Option&lt;<a href="#pagination">Pagination</a>&gt;</p>
+<p><em>// The user provided values of any type</em>
+<strong>extra</strong>: Map&lt;string, Any&gt;
+<em>// Marks whether this page is the active one</em>
+<em>// Can be used to highlight the current page in a list of pages</em>
+<strong>active</strong>: bool</p>
+</code>
+<h3>Pagination</h3>
+<p>When the pagination is available, you can use these variables in the pagination section
+(<code>{{#pagination}} ... {{/pagination}}</code>):</p>
+<code id="pagination" class="highlighted">
+<p><em>// Number of the current page in the paginated pages</em>
+<strong>current</strong>: integer
+<em>// Number of the previous page in the paginated pages</em>
+<em>// This is also its slug</em>
+<strong>previous</strong>: Option&lt;integer&gt;
+<em>// Number of the next page in the paginated pages</em>
+<em>// This is also its slug</em>
+<strong>next</strong>: Option&lt;integer&gt;
+<em>// Number of the paginated pages</em>
+<strong>length</strong>: integer</p>
+</code>
+<h3>Ancestors</h3>
+<p>When the page path is used as a section (<code>{{#path}} ... {{/path}}</code>), it is interpreted
+as a list of ancestors. This makes making breadcrumbs possible.
+For the path segments, the following are available:</p>
+<code id="ancestors" class="highlighted">
+<p><em>// Name of the current path segment</em>
+<strong>name</strong>: string
+<em>// The full path up to this segment</em>
+<strong>full</strong>: string</p>
+</code>
+<h3>DateTime</h3>
+<p>When the date is available, you can use these variables in the datetime section
+(<code>{{#date}} ... {{/date}}</code>), roughly corresponding to <a href="https://strftime.org/">strftime</a>:</p>
+<code id="picture" class="highlighted">
+<p><em>// Year</em>
+<strong>y</strong>: integer
+<em>// Month</em>
+<strong>m</strong>: integer
+<em>// Day, 0-padded</em>
+<strong>d</strong>: integer
+<em>// Day, space-padded</em>
+<strong>e</strong>: integer
+<em>// Hour</em>
+<strong>H</strong>: integer
+<em>// Minute</em>
+<strong>M</strong>: integer
+<em>// Second</em>
+<strong>S</strong>: integer
+<em>// First 3 letters of the English month name</em>
+<strong>b</strong>: string
+<em>// First 3 letters of the English weekday name</em>
+<strong>a</strong>: string</p>
+</code>
+<h3>Picture</h3>
+<p>When pictures are available, you can use these variables in the pictures section
+(<code>{{#pictures}} ... {{/pictures}}</code> for a list of them):</p>
+<code id="picture" class="highlighted">
+<p><em># Id string of the picture, used for the generated URL in the gallery page</em>
+<strong>pid</strong>: string
+<em># An associated caption of the picture</em>
+<strong>caption</strong>: string
+<em># An alternative text displayed when the image can't be loaded of for accessibility</em>
+<strong>alt</strong>: string
+<em># File name of the image</em>
+<strong>file</strong>: string
+<em># Date and time of when the image was taken</em>
+<strong>taken</strong>: Option&lt;<a href="#datetime">DateTime</a>&gt;
+<em>// The full link of the picture, with the site URL included</em>
+<strong>permalink</strong>: string</p>
+</code>
+<h2>Gallery</h2>
+<p>When a page contains come picture, the gallery is created. The page of each photo in the gallery
+gets the following variables:</p>
+<code id="gallery" class="highlighted">
+<p><em>// The current picture</em>
+<strong>current</strong>: <a href="#picture">Picture</a>
+<em>// The previous picture in the list (the last one for the first one)</em>
+<strong>previous</strong>: <a href="#picture">Picture</a>
+<em>// The next picture in the list (the first one for the last one)</em>
+<strong>next</strong>: <a href="#picture">Picture</a>
+<em>// The parent page, from which this gallery is generated</em>
+<strong>parent</strong>: <a href="#page">Page</a></p>
+</code>
+<h2>Taxonomy</h2>
+<p>Each taxonomy that is rendered gets the following variables:</p>
+<code id="taxonomy" class="highlighted">
+<p><em>// Full name of the taxonomy</em>
+<strong>title</strong>: string
+<em>// A short name of the taxonomy, used in the URL</em>
+<strong>slug</strong>: string
+<em>// A brief description of the taxonomy</em>
+<strong>description</strong>: string
+<em>// A list of keys used in this taxonomy and their corresponding pages</em>
+<strong>keys</strong>: List&lt;<a href="#keypages">KeyPages</a>&gt;</p>
+</code>
+<h3>Key pages</h3>
+<p>When keys in the taxonomy are available, you can use these variables in the keys section
+(<code>{{#keys}} ... {{/keys}}</code> for a list of them):</p>
+<code id="keypages" class="highlighted">
+<p><em>// Name of this key (also used in the URL of the key page)</em>
+<strong>key</strong>: str
+<em>// All the pages with this key in this taxonomy</em>
+<strong>pages</strong>: List&lt;<a href="#page">Page</a>&gt;</p>
+</code>
+<h2>Taxonomy key</h2>
+<p>When rendering a page of a single taxonomy key, these variables are available:</p>
+<code id="taxonomy-key" class="highlighted">
+<p><em>// Name of this key (also used in the URL)</em>
+<strong>title</strong>: string
+<em>// The parent taxonomy where this key belongs to</em>
+<strong>taxonomy</strong>: <a href="#taxonomy">Taxonomy</a>
+<em>// The pages using this key</em>
+<strong>pages</strong>: List&lt;<a href="#page">Page</a>&gt;
+<em>// Optional pagination, if enabled for this taxonomy</em>
+<strong>pagination</strong>: Option&lt;<a href="#pagination">Pagination</a>&gt;</p>
+</code>
+<h2>Site</h2>
+<p>The data of the whole site, available for every page in the site section
+(<code>{{#site}} ... {{/site}}</code>):</p>
+<code id="site" class="highlighted">
+<p><em>// The main title of the site</em>
+<strong>title</strong>: string
+<em>// The main URL of the site</em>
+<strong>url</strong>: string
+<strong>description</strong>: string
+<strong>keywords</strong>: string
+<em>// A representative image of the site</em>
+<strong>image</strong>: string
+<em>// Info about the author of the site</em>
+<strong>author</strong>: <a href="#author">Author</a></p>
+<p><em>// Path of the site where the assets are moved to</em>
+<strong>assets</strong>: string
+<em>// Is sitemap rendered?</em>
+<strong>sitemap</strong>: bool
+<em>// Is atom feed rendered?</em>
+<strong>atom</strong>: bool
+<em>// Is RSS feed rendered?</em>
+<strong>rss</strong>: bool
+<em>// Are taxonomies not explicitly defined in the config, but used in some page rendered?</em>
+<strong>implicit_taxonomies</strong>: bool
+<em>// Are pages without date provided assigned the date of file creation?</em>
+<strong>dates_of_creation</strong>: bool</p>
+<p><em>// The user provided values of any type</em>
+<strong>extra</strong>: Map&lt;string, Any&gt;</p>
+</code>
+<h3>Author</h3>
+<p>Info about the site author, available as a subsection of <a href="#site">site</a>
+(<code>{{#site}}{{#author}} ... {{/author}}{{/site}}</code>):</p>
+<code id="author" class="highlighted">
+<p><strong>name</strong>: string
+<strong>uri</strong>: string
+<strong>email</strong>: string
+<strong>avatar</strong>: string</p>
+</code>
+</article>
+    <div id="prevnext">
+        <a href="/pages.html">&lt;- Pages</a>
+        
+        
+    </div>
+</div>
+</div>
+<footer id="footer">
+    Generated with <strong><span class="blades-logo"></span>blades</strong>
+    (of course - check the <a href="https://github.com/grego/bladesite" target="_blank">source</a>).
+    No JavaScript used.
+</footer>
+</body>
+</html>
