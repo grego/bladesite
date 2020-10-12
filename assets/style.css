@@ -126,6 +126,8 @@ img {
 	top: 0.6rem;
 	appearance: none;
 	margin: 0;
+	-webkit-appearance: none;
+	-moz-appearance: none;
 }
 
 .control-button::before, .control-button::after {
