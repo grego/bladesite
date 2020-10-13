@@ -12,8 +12,8 @@
     </author>
     
     <subtitle></subtitle>
-    <generator>razor</generator>
-    <updated>2020-10-12T22:49:21Z</updated>
+    <generator>blades</generator>
+    <updated>2020-10-13T11:34:11Z</updated>
 
 
     <entry>
@@ -67,7 +67,7 @@ is welcome! <code>:)</code></p>
 <p>Then, you can run the executable <code>blades</code> with the following subcommands:</p>
 <ul>
 <li><code>init</code>: Initialise the site in the current directory, creating the basic files and folders</li>
-<li><code>build</code>: Build the site according to config, content, templates and themes in the currend directory</li>
+<li><code>build</code>: Build the site according to config, content, templates and themes in the current directory</li>
 <li><code>colocate</code>: Move the assets from the &quot;assets&quot; directory and from the theme, if one is used, into the output directory</li>
 <li><code>all</code>: Build the site and colocate the assets</li>
 <li><code>lazy</code>: Build the site and (colocate assets only if the theme was switched) [default]</li>
@@ -95,7 +95,7 @@ and <a href="https://en.wikipedia.org/wiki/RSS">RSS</a> (into <code>rss.xml</cod
 <p>If you found a bug or would like to see some feature in Blades, you are the most welcome to submit an issue
 or a pull request! Likewise if you found something in this documentation not clear or imprecise.</p>
 </content>
-        <updated>2020-10-04T14:12:45Z</updated>
+        <updated>2020-10-13T11:34:04Z</updated>
     </entry>
     
 
