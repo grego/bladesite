@@ -13,7 +13,7 @@
     
     <subtitle></subtitle>
     <generator>blades</generator>
-    <updated>2020-10-13T11:34:11Z</updated>
+    <updated>2020-10-13T17:02:34Z</updated>
 
 
     <entry>
@@ -60,7 +60,9 @@ is welcome! <code>:)</code></p>
         <link rel="alternate" href="/getting_started.html" />
         <id>/getting_started</id>
         <summary></summary>
-        <content><p>If you have the Rust toolchain installed, you can install Blades from <a href="https://crates.io/crates/blades">Crates.io</a></p>
+        <content><p>Currently, Blades is available on <a href="https://aur.archlinux.org/packages/blades-bin/">AUR</a>. You can
+install it with some AUR helper, like <code>yay -S blades-bin</code>.</p>
+<p>If you have the Rust toolchain installed, you can install Blades from <a href="https://crates.io/crates/blades">Crates.io</a></p>
 <pre><code class="language-bash">cargo install blades
 </code></pre>
 <p>If you would like to have it included in your favourite package repository, <a href="https://github.com/grego/blades">submit an issue</a>.</p>
