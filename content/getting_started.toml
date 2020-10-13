@@ -2,7 +2,8 @@ title = "Getting started"
 weight = 0
 content = """
 Currently, Blades is available on [AUR](https://aur.archlinux.org/packages/blades-bin/). You can
-install it with some AUR helper, like `yay -S blades-bin`.
+install it with some AUR helper, like  
+`yay -S blades-bin`.
 
 If you have the Rust toolchain installed, you can install Blades from [Crates.io](https://crates.io/crates/blades)
 ``` bash
