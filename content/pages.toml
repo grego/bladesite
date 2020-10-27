@@ -64,6 +64,7 @@ In pages, these variables can be specified (everything optional, default values 
 *# tags = ["blades", "documentation"]*
 
 *# Any "key = value" of any type can be used here for templates*
+*# [CommonMark](https://commonmark.org/) markdown can be used for string fields here*
 [**extra**]
 
 </code>
