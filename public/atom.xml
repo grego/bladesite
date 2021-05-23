@@ -13,7 +13,7 @@
     
     <subtitle></subtitle>
     <generator>blades</generator>
-    <updated>2020-10-27T09:04:31Z</updated>
+    <updated>2021-05-23T21:58:24Z</updated>
 
 
     <entry>
@@ -31,7 +31,7 @@ content using the provided templates.<br />
 Thanks to the amazing <a href="https://github.com/maciejhirsz/ramhorns">Ramhorns</a> templating engine,
 <a href="https://serde.rs/lifetimes.html#borrowing-data-in-a-derived-impl">zero-copy</a> deserialisation
 and <a href="https://github.com/rayon-rs/rayon">rayon</a> parallel iterators, it renders the whole site in
-milliseconds, possibly up to <a href="https://github.com/grego/ssg-bench">10 times</a> faster than other generators like Hugo.</p>
+milliseconds, possibly more than <a href="https://github.com/grego/ssg-bench">10 times</a> faster than other generators like Hugo.</p>
 <p>It's made for easy setup and use. A static site generator should be a no brainer.
 It uses <a href="https://mustache.github.io/mustache.5.html">mustache</a> templates with extremely minimal
 and obvious syntax (really, like 7 rules!), while providing the necessary building blocks
@@ -51,7 +51,7 @@ is welcome! <code>:)</code></p>
 <h2>Why <em><code>blades</code></em>?</h2>
 <p>They shave the <a href="https://mustache.github.io/mustache.5.html">mustache</a> off.</p>
 </content>
-        <updated>2020-10-01T14:41:12Z</updated>
+        
     </entry>
     
 
@@ -98,7 +98,7 @@ and <a href="https://en.wikipedia.org/wiki/RSS">RSS</a> (into <code>rss.xml</cod
 <p>If you found a bug or would like to see some feature in Blades, you are the most welcome to submit an issue
 or a pull request! Likewise if you found something in this documentation not clear or imprecise.</p>
 </content>
-        <updated>2020-10-13T11:34:04Z</updated>
+        
     </entry>
     
 
@@ -152,7 +152,7 @@ variables can be set (all optional, default values shown):</p>
 [<strong>extra</strong>]</p>
 </code>
 </content>
-        <updated>2020-10-04T14:14:20Z</updated>
+        
     </entry>
     
 
@@ -190,7 +190,9 @@ such as their subpages and subsections. Other TOML files are treated as standard
 <em># A priority of this page for SEO, in the range of 0-1</em>
 <strong>priority</strong> = 0.5
 <em># Hide the page from the list of its parent's subpages or subsections</em>
-<strong>hidden</strong> = false</p>
+<strong>hidden</strong> = false
+<em>A list of alternative paths to render this page in, relative to the output directory</em>
+<strong>alternative_paths</strong> = []</p>
 <p><em># A template to render the gallery pictures with</em>
 <strong>gallery_template</strong> = &quot;gallery.html&quot;</p>
 <p><em># A list of pictures associated with this page</em>
@@ -241,7 +243,7 @@ such as their subpages and subsections. Other TOML files are treated as standard
 <strong>slug</strong> = {{ file name without the extension }}</p>
 </code>
 </content>
-        <updated>2020-10-08T09:19:32Z</updated>
+        
     </entry>
     
 
@@ -286,7 +288,9 @@ Here is the list of variables at your disposal, all with their type specified.</
 <em>// The trailing segment of this page's URL</em>
 <em>// Without the .html extension</em>
 <em>// For sections, it's the folder name rather than <code>index</code></em>
-<strong>slug</strong>: string</p>
+<strong>slug</strong>: string
+<em>// A list of alternative paths where this page is rendered to, if any</em>
+<strong>alternative_paths</strong>: List<string></p>
 <p><em>// A list of classifications for each of the provided taxonomies</em>
 <strong>taxonomies</strong>: Map&lt;string, List&lt;string&gt;&gt;
 <em>// A list of pictures provided by this page</em>
@@ -465,7 +469,7 @@ gets the following variables:</p>
 <strong>avatar</strong>: string</p>
 </code>
 </content>
-        <updated>2020-10-08T13:38:44Z</updated>
+        
     </entry>
     
 
@@ -477,7 +481,7 @@ gets the following variables:</p>
         <content><p>Any site that doesn't use a theme can be used as a theme for another site.<br />
 To contribute your own, submit a PR to the <a href="https://github.com/grego/blades-themes">themes repository</a>.</p>
 </content>
-        <updated>2020-10-12T16:54:34Z</updated>
+        
     </entry>
     
 
@@ -488,7 +492,7 @@ To contribute your own, submit a PR to the <a href="https://github.com/grego/bla
         <summary></summary>
         <content><p>A clean blog theme, loosely based on the old Ghost.io default, but without JavaScript</p>
 </content>
-        <updated>2020-10-12T17:19:55Z</updated>
+        
     </entry>
     
 
@@ -499,7 +503,7 @@ To contribute your own, submit a PR to the <a href="https://github.com/grego/bla
         <summary></summary>
         <content><p>Secure and accessible dark theme</p>
 </content>
-        <updated>2020-10-12T17:19:49Z</updated>
+        
     </entry>
     
 
@@ -510,7 +514,7 @@ To contribute your own, submit a PR to the <a href="https://github.com/grego/bla
         <summary></summary>
         <content><p>For people who like the MS-DOS æsthetics</p>
 </content>
-        <updated>2020-10-12T17:11:39Z</updated>
+        
     </entry>
     
 

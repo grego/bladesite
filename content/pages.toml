@@ -37,6 +37,8 @@ In pages, these variables can be specified (everything optional, default values 
 **priority** = 0.5
 *# Hide the page from the list of its parent's subpages or subsections*
 **hidden** = false
+*A list of alternative paths to render this page in, relative to the output directory*
+**alternative_paths** = []
 
 *# A template to render the gallery pictures with*
 **gallery_template** = "gallery.html"

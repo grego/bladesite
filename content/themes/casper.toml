@@ -1,5 +1,6 @@
 title = "casper"
 image = "img/casper.png"
+weight = 0
 content = "A clean blog theme, loosely based on the old Ghost.io default, but without JavaScript"
 
 [extra]

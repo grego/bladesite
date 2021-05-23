@@ -1,5 +1,6 @@
 title = "after-dark"
 image = "img/after-dark.png"
+weight = 1
 content = "Secure and accessible dark theme"
 
 [extra]

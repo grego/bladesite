@@ -1,5 +1,6 @@
 title = "BLADE.386"
 image = "img/blade.png"
+weight = 2
 content = "For people who like the MS-DOS æsthetics"
 
 [extra]

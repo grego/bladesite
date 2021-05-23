@@ -47,6 +47,8 @@ When rendering a page, these variables are available:
 *// Without the .html extension*
 *// For sections, it's the folder name rather than `index`*
 **slug**: string
+*// A list of alternative paths where this page is rendered to, if any*
+**alternative_paths**: List<string>
 
 *// A list of classifications for each of the provided taxonomies*
 **taxonomies**: Map<string, List&lt;string&gt;>
