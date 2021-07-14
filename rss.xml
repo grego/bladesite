@@ -7,7 +7,7 @@
         <description></description>
         <ttl>1440</ttl>
         <generator>blades</generator>
-        <pubDate>Sun, 23 May 2021 22:02:53 GMT</pubDate>
+        <pubDate>Wed, 14 Jul 2021 12:41:09 GMT</pubDate>
         
     
     
@@ -15,7 +15,7 @@
             <title>Index</title>
             <link>/</link>
             <description></description>
-            
+            <pubDate>Thu, 01 Oct 2020 14:41:12 GMT</pubDate>
         </item>
         
     
@@ -23,7 +23,7 @@
             <title>Getting started</title>
             <link>/getting_started.html</link>
             <description></description>
-            
+            <pubDate>Tue, 13 Oct 2020 11:34:04 GMT</pubDate>
         </item>
         
     
@@ -31,7 +31,7 @@
             <title>Configuration</title>
             <link>/config.html</link>
             <description></description>
-            
+            <pubDate>Sun, 04 Oct 2020 14:14:20 GMT</pubDate>
         </item>
         
     
@@ -39,7 +39,7 @@
             <title>Pages</title>
             <link>/pages.html</link>
             <description></description>
-            
+            <pubDate>Thu, 08 Oct 2020 09:19:32 GMT</pubDate>
         </item>
         
     
@@ -47,7 +47,7 @@
             <title>Templates</title>
             <link>/templates.html</link>
             <description></description>
-            
+            <pubDate>Thu, 08 Oct 2020 13:38:44 GMT</pubDate>
         </item>
         
     
@@ -55,7 +55,7 @@
             <title>Themes</title>
             <link>/themes/</link>
             <description></description>
-            
+            <pubDate>Mon, 12 Oct 2020 16:54:34 GMT</pubDate>
         </item>
         
     
@@ -63,7 +63,7 @@
             <title>casper</title>
             <link>/themes/casper.html</link>
             <description></description>
-            
+            <pubDate>Mon, 12 Oct 2020 17:19:55 GMT</pubDate>
         </item>
         
     
@@ -71,7 +71,7 @@
             <title>after-dark</title>
             <link>/themes/after-dark.html</link>
             <description></description>
-            
+            <pubDate>Mon, 12 Oct 2020 17:19:49 GMT</pubDate>
         </item>
         
     
@@ -79,7 +79,7 @@
             <title>BLADE.386</title>
             <link>/themes/BLADE.html</link>
             <description></description>
-            
+            <pubDate>Mon, 12 Oct 2020 17:11:39 GMT</pubDate>
         </item>
         
     

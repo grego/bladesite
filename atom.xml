@@ -13,7 +13,7 @@
     
     <subtitle></subtitle>
     <generator>blades</generator>
-    <updated>2021-05-23T22:02:53Z</updated>
+    <updated>2021-07-14T12:41:09Z</updated>
 
 
     <entry>
@@ -51,7 +51,7 @@ is welcome! <code>:)</code></p>
 <h2>Why <em><code>blades</code></em>?</h2>
 <p>They shave the <a href="https://mustache.github.io/mustache.5.html">mustache</a> off.</p>
 </content>
-        
+        <updated>2020-10-01T14:41:12Z</updated>
     </entry>
     
 
@@ -96,7 +96,7 @@ and <a href="https://en.wikipedia.org/wiki/RSS">RSS</a> (into <code>rss.xml</cod
 <p>If you found a bug or would like to see some feature in Blades, you are the most welcome to submit an issue
 or a pull request! Likewise if you found something in this documentation not clear or imprecise.</p>
 </content>
-        
+        <updated>2020-10-13T11:34:04Z</updated>
     </entry>
     
 
@@ -150,7 +150,7 @@ variables can be set (all optional, default values shown):</p>
 [<strong>extra</strong>]</p>
 </code>
 </content>
-        
+        <updated>2020-10-04T14:14:20Z</updated>
     </entry>
     
 
@@ -159,13 +159,15 @@ variables can be set (all optional, default values shown):</p>
         <link rel="alternate" href="/pages.html" />
         <id>/pages</id>
         <summary></summary>
-        <content><p>Blades loads all the <a href="https://toml.io">TOML</a> files (with the <code>.toml</code> extension) from the content directory
+        <content><p>Blades loads all the <a href="https://toml.io">TOML</a> files (with the <code>.toml</code> extension) and <a href="https://commonmark.org">CommonMark</a>
+files (<code>.md</code> extension) with an optional TOML header (delimited by <code>+++</code> characters) from the content directory
 specified in the <a href="config.html">config</a> (defaults to <code>content</code>). In these files, the page content
 and metadata are provided. They are then rendered using the provided <a href="templates.html">templates</a>.</p>
-<p>When the file is called <code>index.toml</code>, the corresponding page is called <strong>section</strong>. The rendered page (<code>index.html</code>) is displayed
+<p>When the file is called <code>index.toml</code> or <code>index.md</code>, the corresponding page is called <strong>section</strong>. The rendered page (<code>index.html</code>) is displayed
 when the user browses to the parent URL. They can use some additional data in templates,
-such as their subpages and subsections. Other TOML files are treated as standard pages.</p>
-<p>In pages, these variables can be specified (everything optional, default values shown):</p>
+such as their subpages and subsections. Other files are treated as standard pages.</p>
+<p>In pages (either in TOML files or in the header for Markdown files), these variables can be specified
+(everything optional, default values shown):</p>
 <code class="highlighted">
 <p><em># Title of the page</em>
 <strong>title</strong> = &quot;&quot;
@@ -178,7 +180,8 @@ such as their subpages and subsections. Other TOML files are treated as standard
 <strong>summary</strong> = &quot;&quot;
 <em># The main content of the page</em>
 <em># <a href="https://commonmark.org/">CommonMark</a> markdown can be used here</em>
-<strong>content</strong> = &quot;&quot;&quot;
+*# In Markdown files, it is replaced with the actual content of the file, if present.</p>
+<p><strong>content</strong> = &quot;&quot;&quot;
 &quot;&quot;&quot;</p>
 <p><em># A template to render this page with.</em>
 <em># If none is specified, the one specified in the <a href="#sections">parent section</a> is used</em>
@@ -241,7 +244,7 @@ such as their subpages and subsections. Other TOML files are treated as standard
 <strong>slug</strong> = {{ file name without the extension }}</p>
 </code>
 </content>
-        
+        <updated>2020-10-08T09:19:32Z</updated>
     </entry>
     
 
@@ -467,7 +470,7 @@ gets the following variables:</p>
 <strong>avatar</strong>: string</p>
 </code>
 </content>
-        
+        <updated>2020-10-08T13:38:44Z</updated>
     </entry>
     
 
@@ -479,7 +482,7 @@ gets the following variables:</p>
         <content><p>Any site that doesn't use a theme can be used as a theme for another site.<br />
 To contribute your own, submit a PR to the <a href="https://github.com/grego/blades-themes">themes repository</a>.</p>
 </content>
-        
+        <updated>2020-10-12T16:54:34Z</updated>
     </entry>
     
 
@@ -490,7 +493,7 @@ To contribute your own, submit a PR to the <a href="https://github.com/grego/bla
         <summary></summary>
         <content><p>A clean blog theme, loosely based on the old Ghost.io default, but without JavaScript</p>
 </content>
-        
+        <updated>2020-10-12T17:19:55Z</updated>
     </entry>
     
 
@@ -501,7 +504,7 @@ To contribute your own, submit a PR to the <a href="https://github.com/grego/bla
         <summary></summary>
         <content><p>Secure and accessible dark theme</p>
 </content>
-        
+        <updated>2020-10-12T17:19:49Z</updated>
     </entry>
     
 
@@ -512,7 +515,7 @@ To contribute your own, submit a PR to the <a href="https://github.com/grego/bla
         <summary></summary>
         <content><p>For people who like the MS-DOS æsthetics</p>
 </content>
-        
+        <updated>2020-10-12T17:11:39Z</updated>
     </entry>
     
 
