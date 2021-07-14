@@ -27,7 +27,7 @@ In pages (either in TOML files or in the header for Markdown files), these varia
 **summary** = ""
 *# The main content of the page*
 *# [CommonMark](https://commonmark.org/) markdown can be used here*
-*# In Markdown files, it is replaced with the actual content of the file, if present.
+*# In Markdown files, it is replaced with the actual content of the file, if present.*
 
 **content** = \"\"\"
 \"\"\"
