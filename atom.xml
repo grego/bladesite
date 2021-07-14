@@ -13,7 +13,7 @@
     
     <subtitle></subtitle>
     <generator>blades</generator>
-    <updated>2021-07-14T12:41:09Z</updated>
+    <updated>2021-07-14T12:43:38Z</updated>
 
 
     <entry>
@@ -180,7 +180,7 @@ such as their subpages and subsections. Other files are treated as standard page
 <strong>summary</strong> = &quot;&quot;
 <em># The main content of the page</em>
 <em># <a href="https://commonmark.org/">CommonMark</a> markdown can be used here</em>
-*# In Markdown files, it is replaced with the actual content of the file, if present.</p>
+<em># In Markdown files, it is replaced with the actual content of the file, if present.</em></p>
 <p><strong>content</strong> = &quot;&quot;&quot;
 &quot;&quot;&quot;</p>
 <p><em># A template to render this page with.</em>
