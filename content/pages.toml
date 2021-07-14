@@ -1,15 +1,17 @@
 title = "Pages"
 weight = 3
 content = """
-Blades loads all the [TOML](https://toml.io) files (with the `.toml` extension) from the content directory
+Blades loads all the [TOML](https://toml.io) files (with the `.toml` extension) and [CommonMark](https://commonmark.org)
+files (`.md` extension) with an optional TOML header (delimited by `+++` characters) from the content directory
 specified in the [config](config.html) (defaults to `content`). In these files, the page content
 and metadata are provided. They are then rendered using the provided [templates](templates.html).
 
-When the file is called `index.toml`, the corresponding page is called **section**. The rendered page (`index.html`) is displayed
+When the file is called `index.toml` or `index.md`, the corresponding page is called **section**. The rendered page (`index.html`) is displayed
 when the user browses to the parent URL. They can use some additional data in templates,
-such as their subpages and subsections. Other TOML files are treated as standard pages.
+such as their subpages and subsections. Other files are treated as standard pages.
 
-In pages, these variables can be specified (everything optional, default values shown):
+In pages (either in TOML files or in the header for Markdown files), these variables can be specified
+(everything optional, default values shown):
 
 <code class="highlighted">
 
@@ -25,6 +27,8 @@ In pages, these variables can be specified (everything optional, default values 
 **summary** = ""
 *# The main content of the page*
 *# [CommonMark](https://commonmark.org/) markdown can be used here*
+*# In Markdown files, it is replaced with the actual content of the file, if present.
+
 **content** = \"\"\"
 \"\"\"
 
