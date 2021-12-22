@@ -118,7 +118,6 @@ ul {
     height: 4.2rem;
     background: var(--dark);
     color: var(--main);
-    z-index: 4;
     position: relative;
     width: 100vw;
     max-width: 1024px;
@@ -227,7 +226,7 @@ ul {
 }
 
 #nav {
-    z-index: 1;
+    z-index: 6;
     background: var(--dark);
     width: 100vw;
     margin-bottom: 0;
