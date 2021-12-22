@@ -7,7 +7,7 @@
         <description></description>
         <ttl>1440</ttl>
         <generator>blades</generator>
-        <pubDate>Tue, 21 Dec 2021 23:56:44 GMT</pubDate>
+        <pubDate>Wed, 22 Dec 2021 16:04:59 GMT</pubDate>
         
     
     
@@ -15,7 +15,7 @@
             <title>Index</title>
             <link>/</link>
             <description></description>
-            <pubDate>Fri, 17 Dec 2021 23:40:57 GMT</pubDate>
+            
         </item>
         
     
@@ -23,7 +23,7 @@
             <title>Getting started</title>
             <link>/getting_started.html</link>
             <description></description>
-            <pubDate>Fri, 17 Dec 2021 23:40:57 GMT</pubDate>
+            
         </item>
         
     
@@ -31,7 +31,7 @@
             <title>Configuration</title>
             <link>/config.html</link>
             <description></description>
-            <pubDate>Fri, 17 Dec 2021 23:40:57 GMT</pubDate>
+            
         </item>
         
     
@@ -39,7 +39,7 @@
             <title>Pages</title>
             <link>/pages.html</link>
             <description></description>
-            <pubDate>Fri, 17 Dec 2021 23:40:57 GMT</pubDate>
+            
         </item>
         
     
@@ -47,7 +47,15 @@
             <title>Templates</title>
             <link>/templates.html</link>
             <description></description>
-            <pubDate>Fri, 17 Dec 2021 23:40:57 GMT</pubDate>
+            
+        </item>
+        
+    
+        <item>
+            <title>Making plugins</title>
+            <link>/making-plugins.html</link>
+            <description></description>
+            
         </item>
         
     
@@ -55,31 +63,55 @@
             <title>Themes</title>
             <link>/themes/</link>
             <description></description>
-            <pubDate>Fri, 17 Dec 2021 23:40:57 GMT</pubDate>
+            
+        </item>
+        
+    
+        <item>
+            <title>Plugins</title>
+            <link>/plugins/</link>
+            <description></description>
+            
+        </item>
+        
+    
+        <item>
+            <title>KaTeX - Rust</title>
+            <link>/plugins/katex-rs.html</link>
+            <description>Render math formulas using KaTeX - written in Rust</description>
+            
+        </item>
+        
+    
+        <item>
+            <title>KaTeX - JavaScript</title>
+            <link>/plugins/katex-js.html</link>
+            <description>Render math formulas using KaTeX - written in JavaScript</description>
+            
         </item>
         
     
         <item>
             <title>casper</title>
             <link>/themes/casper.html</link>
-            <description></description>
-            <pubDate>Fri, 17 Dec 2021 23:40:57 GMT</pubDate>
+            <description>A clean blog theme, loosely based on the old Ghost.io default, but without JavaScript</description>
+            
         </item>
         
     
         <item>
             <title>after-dark</title>
             <link>/themes/after-dark.html</link>
-            <description></description>
-            <pubDate>Fri, 17 Dec 2021 23:40:57 GMT</pubDate>
+            <description>Secure and accessible dark theme</description>
+            
         </item>
         
     
         <item>
             <title>BLADE.386</title>
             <link>/themes/BLADE.html</link>
-            <description></description>
-            <pubDate>Fri, 17 Dec 2021 23:40:57 GMT</pubDate>
+            <description>For people who like the MS-DOS æsthetics</description>
+            
         </item>
         
     

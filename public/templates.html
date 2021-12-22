@@ -30,8 +30,11 @@
       
       <a class="navlink " href="/themes/">Themes</a>
       
+      <a class="navlink " href="/plugins/">Plugins</a>
       
-        <a class="navlink" target="_blank" href="https://github.com/grego/blades">Contribute</a>
+      
+        <a class="navlink" target="_blank" href="<p>https://github.com/grego/blades</p>
+">Contribute</a>
       
     </nav>
 </div>
@@ -45,16 +48,20 @@
         <a class="pagelink " href="/pages.html">Pages</a>
     
         <a class="pagelink active" href="/templates.html">Templates</a>
+    
+        <a class="pagelink " href="/making-plugins.html">Making plugins</a>
     </nav>
 </div>
 <div class="full">
     <h1 id="pagetitle">Templates</h1>
-    <article id="content"><p>Blades uses <a href="https://mustache.github.io/mustache.5.html">mustache</a> templates with the amazingly fast
-<a href="https://github.com/maciejhirsz/ramhorns">Ramhorns</a> engine. While their syntax is extremely simple
+    <article id="content"><p>Blades uses <a href="https://mustache.github.io/mustache.5.html">mustache</a> templates with the 
+<a href="https://github.com/maciejhirsz/ramhorns">Ramhorns</a> engine. While their syntax is simple
 (and can be learned in a few minutes), they are surprisingly expressive.</p>
-<p>The templates are loaded from the <code>templates</code> subdirectory, or secondarily from the <code>$theme_dir/$theme/templates</code>
-directory if a theme is specified in the <a href="config.html">config</a>.
-Here is the list of variables at your disposal, all with their type specified.</p>
+<p>Templates are loaded from the <code>templates</code> subdirectory, or secondarily from the <code>themes/$theme/templates</code>
+directory if a theme is specified in the <a href="config.html">config</a>.</p>
+<p>Here is the list of variables available to use in templates. Apart from these,
+<strong>any</strong> other variable of <strong>any type</strong> specified on the <a href="/page.html">page</a>
+or in the <a href="/config.html">site config</a> can also be used.</p>
 <p>These variables are common for all pages:</p>
 <code class="highlighted">
 <p><em>// The data of the whole site</em>
@@ -110,9 +117,7 @@ Here is the list of variables at your disposal, all with their type specified.</
 <strong>subsections</strong>: List&lt;<a href="#page">Page</a>&gt;
 <em>// Available when the subpages are paginated</em>
 <strong>pagination</strong>: Option&lt;<a href="#pagination">Pagination</a>&gt;</p>
-<p><em>// The user provided values of any type</em>
-<strong>extra</strong>: Map&lt;string, Any&gt;
-<em>// Marks whether this page is the active one</em>
+<p><em>// Marks whether this page is the active one</em>
 <em>// Can be used to highlight the current page in a list of pages</em>
 <strong>active</strong>: bool</p>
 </code>
@@ -253,8 +258,6 @@ gets the following variables:</p>
 <strong>implicit_taxonomies</strong>: bool
 <em>// Are pages without date provided assigned the date of file creation?</em>
 <strong>dates_of_creation</strong>: bool</p>
-<p><em>// The user provided values of any type</em>
-<strong>extra</strong>: Map&lt;string, Any&gt;</p>
 </code>
 <h3>Author</h3>
 <p>Info about the site author, available as a subsection of <a href="#site">site</a>
@@ -269,13 +272,14 @@ gets the following variables:</p>
     <div id="prevnext">
     <a href="/pages.html">← Pages</a>
     
-    
+    <a href="/making-plugins.html">Making plugins →</a>
 </div>
 </div>
 </div>
-<footer id="footer">Created with <strong><span class="blades-logo"></span>blades</strong>
+<footer id="footer"><p>Created with <strong><span class="blades-logo"></span>blades</strong>
 (of course - check the <a href="https://github.com/grego/bladesite">source</a>)
 by <a href="https://grego.site">Maroš Grego</a>.
-No JavaScript used.</footer>
+No JavaScript used.</p>
+</footer>
 </body>
 </html>

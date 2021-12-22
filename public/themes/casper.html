@@ -30,8 +30,11 @@
       
       <a class="navlink " href="/themes/">Themes</a>
       
+      <a class="navlink " href="/plugins/">Plugins</a>
       
-        <a class="navlink" target="_blank" href="https://github.com/grego/blades">Contribute</a>
+      
+        <a class="navlink" target="_blank" href="<p>https://github.com/grego/blades</p>
+">Contribute</a>
       
     </nav>
 </div>
@@ -40,16 +43,20 @@
     <article id="content">
         <h1>casper</h1>
         
-        <img src="/img/casper.png" />
+        <img src="/img/casper.png"/>
         <p>A clean blog theme, loosely based on the old Ghost.io default, but without JavaScript</p>
-
         <p><a href="https://blades-casper.netlify.app/" target="_blank">Live demo</a></p>
         <p>To use this theme, simply clone it into your <code>themes</code> directory:</p>
-        <code class="highlighted">cd themes && git clone https://github.com/grego/casper</code>
-        <p>Or use it as a submodule:</p>
-        <code class="highlighted">cd themes && git submodule add https://github.com/grego/casper</code>
-        <p>Then, set it in your <code><a href="/config.html">Blades.toml</a></code>:</p>
-        <code class="highlighted"><strong>theme</strong> = casper</code>
+<pre><code class="language-sh"><strong>cd</strong> themes
+<strong>git</strong> clone https://github.com/grego/casper
+</code></pre>
+<p>Or use it as a submodule:</p>
+<pre><code class="language-sh"><strong>cd</strong> themes
+<strong>git</strong> submodule add https://github.com/grego/casper
+</code></pre>
+<p>Then, set it in your <a href="/config.html">config</a>.</p>
+<pre><code class="language-toml"><var>theme</var> = <span>&quot;casper&quot;</span>
+</code></pre>
         <p><a href="https://github.com/grego/casper" target="_blank">Repository</a></p>
     </article>
     <div id="prevnext">
@@ -59,9 +66,10 @@
 </div>
 </div>
 </div>
-<footer id="footer">Created with <strong><span class="blades-logo"></span>blades</strong>
+<footer id="footer"><p>Created with <strong><span class="blades-logo"></span>blades</strong>
 (of course - check the <a href="https://github.com/grego/bladesite">source</a>)
 by <a href="https://grego.site">Maroš Grego</a>.
-No JavaScript used.</footer>
+No JavaScript used.</p>
+</footer>
 </body>
 </html>

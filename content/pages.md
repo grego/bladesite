@@ -45,6 +45,9 @@ hidden = false
 #A list of alternative paths to render this page in, relative to the output directory
 alternative_paths = []
 
+#A list of content plugins to transform the content of this page with
+plugins = []
+
 # A template to render this page with.
 # If none is specified, the one specified in the parent section is used
 template = ""
@@ -96,7 +99,7 @@ For pages that are not sections, you can additionally specify these variables
 
 ```toml
 # The path in the output directory this page is rendered into*
-path = "{{ parent directory of the page within the content directory }}"
+path = "{{ parent directory of the page }}"
 # The file name this page is rendered into, without the .html extension*
 slug = "{{ file name without the extension }}"
 ```

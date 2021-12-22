@@ -50,4 +50,18 @@ avatar = ""
 # Example with default values:
 tags = { name = "", description = "", template = "taxonomy.html", key_template = "taxonomy_key.html", paginate_by = inf, sort_by_weight = false }
 # If provided, 'paginate_by' must be a positive integer
+
+# Plugins to use in the site
+[plugins]
+# Commands to run as input plugins
+input = []
+# Commands to run as output plugins
+output = []
+# Commands to run as transform plugins
+transform = []
+# A map of a short name and a command to run as a content plugin
+# Each one can then be enabled on a particular page to transform its content
+content = {}
+# A list of content plugins (specified above) to run on every page
+default = []
 ```

@@ -3,16 +3,11 @@
     <article id="content">
         <h1>{{title}}</h1>
         {{#author}}by <strong>{{author}}</strong>{{/author}}
-        <img src="{{site url}}/{{image}}" />
-        {{content}}
+        {{#image}}<img src="{{site url}}/{{image}}"/>{{/image}}
+        {{#summary}}<p>{{summary}}</p>{{/summary}}
         {{#preview}}<p><a href="{{{preview}}}" target="_blank">Live demo</a></p>{{/preview}}
-        {{#repository}}<p>To use this theme, simply clone it into your <code>themes</code> directory:</p>
-        <code class="highlighted">cd themes && git clone {{{repository}}}</code>
-        <p>Or use it as a submodule:</p>
-        <code class="highlighted">cd themes && git submodule add {{{repository}}}</code>
-        <p>Then, set it in your <code><a href="{{#site}}{{url}}{{/site}}/config.html">Blades.toml</a></code>:</p>
-        <code class="highlighted"><strong>theme</strong> = {{title}}</code>
-        <p><a href="{{{repository}}}" target="_blank">Repository</a></p>{{/repository}}
+        {{content}}
+        {{#repository}}<p><a href="{{{repository}}}" target="_blank">Repository</a></p>{{/repository}}
     </article>
     {{>prevnext.html}}
 </div>

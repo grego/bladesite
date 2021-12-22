@@ -1,13 +1,16 @@
 title = "Templates"
 weight = 4
 content = """
-Blades uses [mustache](https://mustache.github.io/mustache.5.html) templates with the amazingly fast
-[Ramhorns](https://github.com/maciejhirsz/ramhorns) engine. While their syntax is extremely simple
+Blades uses [mustache](https://mustache.github.io/mustache.5.html) templates with the 
+[Ramhorns](https://github.com/maciejhirsz/ramhorns) engine. While their syntax is simple
 (and can be learned in a few minutes), they are surprisingly expressive.
 
-The templates are loaded from the `templates` subdirectory, or secondarily from the `$theme_dir/$theme/templates`
+Templates are loaded from the `templates` subdirectory, or secondarily from the `themes/$theme/templates`
 directory if a theme is specified in the [config](config.html).
-Here is the list of variables at your disposal, all with their type specified.
+
+Here is the list of variables available to use in templates. Apart from these,
+**any** other variable of **any type** specified on the [page](/page.html)
+or in the [site config](/config.html) can also be used.
 
 These variables are common for all pages:
 
@@ -75,8 +78,6 @@ When rendering a page, these variables are available:
 *// Available when the subpages are paginated*
 **pagination**: Option<[Pagination](#pagination)>
 
-*// The user provided values of any type*
-**extra**: Map<string, Any>
 *// Marks whether this page is the active one*
 *// Can be used to highlight the current page in a list of pages*
 **active**: bool
@@ -255,9 +256,6 @@ The data of the whole site, available for every page in the site section
 **implicit_taxonomies**: bool
 *// Are pages without date provided assigned the date of file creation?*
 **dates_of_creation**: bool
-
-*// The user provided values of any type*
-**extra**: Map<string, Any>
 
 </code>
 

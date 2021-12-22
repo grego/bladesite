@@ -1,7 +1,0 @@
-title = "casper"
-image = "img/casper.png"
-weight = 0
-content = "A clean blog theme, loosely based on the old Ghost.io default, but without JavaScript"
-
-preview = "https://blades-casper.netlify.app/"
-repository = "https://github.com/grego/casper"

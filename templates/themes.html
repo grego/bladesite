@@ -3,9 +3,9 @@
     <article id="content">{{content}}</article>
     <section id="theme-grid">{{#pages}}
         <a class="theme shadowed" href="{{permalink}}">
-            <img src="{{site url}}/{{image}}" />
+            {{#image}}<img src="{{site url}}/{{image}}"/>{{/image}}
             <h1>{{title}}</h1>
-            <p>{{content}}</p>
+            <p>{{summary}}</p>
         </a>
     {{/pages}}</section>
 </div>

@@ -85,6 +85,12 @@ code {
     color: var(--red);
 }
 
+.language-toml em {
+    font-weight: bold;
+    font-style: normal;
+    color: var(--red);
+}
+
 .highlighted em, pre code i {
     color: var(--link);
 }

@@ -3,6 +3,7 @@ title = "Themes"
 template = "themes.html"
 page_template = "theme.html"
 sort_by_weight = true
+weight = 0
 +++
 Any site that doesn't use a theme can be used as a theme for another site.
 
