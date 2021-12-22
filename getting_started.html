@@ -22,15 +22,17 @@
 <body>
 <div id="topbar">
     <div id="logo">
-        <span class="blades-logo"></span>Blades
+        <a href="/"><span class="blades-logo"></span>Blades</a>
     </div>
     <input id="burger-check" class="control-button" type="checkbox">
     <nav id="nav">
-      <a class="navlink" href="/">home</a>
+      <a class="navlink" href="/">Home</a>
       
       <a class="navlink " href="/themes/">Themes</a>
       
-      <a class="navlink" target="_blank" href="https://github.com/grego/blades">contribute</a>
+      
+        <a class="navlink" target="_blank" href="https://github.com/grego/blades">Contribute</a>
+      
     </nav>
 </div>
 <div id="container">
@@ -47,25 +49,29 @@
 </div>
 <div class="full">
     <h1 id="pagetitle">Getting started</h1>
-    <article id="content"><p>Currently, Blades is available on <a href="https://aur.archlinux.org/packages/blades-bin/">AUR</a>.</p>
-<p>If you have the Rust toolchain installed, you can install Blades from <a href="https://crates.io/crates/blades">Crates.io</a></p>
-<pre><code class="language-bash">cargo install blades
+    <article id="content"><p>If you have the Rust toolchain installed, you can install Blades from <a href="https://crates.io/crates/blades">crates.io</a></p>
+<pre><code class="language-sh"><strong>cargo</strong> install blades
 </code></pre>
-<p>If you would like to have it included in your favourite package repository, <a href="https://github.com/grego/blades">submit an issue</a>.</p>
+<p>It is also available on <a href="https://aur.archlinux.org/packages/blades-bin/">AUR</a>.</p>
 <p>Then, you can run the executable <code>blades</code> with the following subcommands:</p>
-<ul>
-<li><code>init</code>: Initialise the site in the current directory, creating the basic files and folders</li>
-<li><code>build</code>: Build the site according to config, content, templates and themes in the current directory</li>
-<li><code>colocate</code>: Move the assets from the &quot;assets&quot; directory and from the theme, if one is used, into the output directory</li>
-<li><code>all</code>: Build the site and colocate the assets</li>
-<li><code>lazy</code>: Build the site and (colocate assets only if the theme was switched) [default]</li>
-<li><code>new</code>: Create a new page</li>
-</ul>
+<div id="commands">
+<p><code>init</code> Initialise the site in the current directory, creating the basic files and folders</p>
+<p><code>build</code> Build the site according to config, content, templates and themes in the current directory</p>
+<p><code>colocate</code> Move the assets from the “assets” directory and from the theme, if one is used, into the output directory</p>
+<p><code>all</code> Build the site and colocate the assets</p>
+<p><code>lazy</code> Build the site and (colocate assets only if the theme was switched) [default]</p>
+<p><code>new</code> Create a new page</p>
+</div>
 <h2>Themes</h2>
 <p>When you specify a theme in the <a href="config.html">config</a>, templates and assets from the theme are used.
-Every site that doesn't use a theme can be used as a theme for another site.
-Therefore, the easiest way to use a theme is to just clone the corresponding theme's repository
-into the <code>themes</code> directory. A list of available themes can be found <a href="/themes">here</a>.</p>
+Every site that doesn’t use a theme can be used as a theme for another site.
+To use it, simply clone it into the themes directory.</p>
+<pre><code class="language-sh"><strong>cd</strong> themes
+<strong>git</strong> clone <var>$site_repository</var>
+</code></pre>
+<p>Then, set it as a theme in <code>Blades.toml</code>:</p>
+<pre><code class="language-toml"><var>theme</var> = <span>&quot;$site_name&quot;</span>
+</code></pre>
 <p>To overwrite the theme, simply use the files in the <code>templates</code>, resp. <code>assets</code> subdirectories of the
 page root directory.</p>
 <h2>Assets</h2>
@@ -75,26 +81,25 @@ output directory (defaults to <code>assets</code>).</p>
 <p>Blades takes of the pages it rendered before and if some of them is deleted, the corresponding
 files in the output directory will be deleted, too. The other files in the output directory
 are left intact. This way, you can place anything in the output directory and (as long as its name
-differs from all the page names and it's not in the assets subdirectory), Blades won't touch it.</p>
+differs from all the page names and it’s not in the assets subdirectory), Blades won’t touch it.</p>
 <h2>Meta</h2>
 <p>Blades renders <a href="https://www.sitemaps.org">sitemap</a> (into <code>sitemap.xml</code>), <a href="https://en.wikipedia.org/wiki/Atom_(Web_standard)">Atom</a> (into <code>atom.xml</code>)
 and <a href="https://en.wikipedia.org/wiki/RSS">RSS</a> (into <code>rss.xml</code>) feeds, unless explicitly disabled in the <a href="config.html">config</a>.</p>
 <h2>Contribution</h2>
 <p>If you found a bug or would like to see some feature in Blades, you are the most welcome to submit an issue
-or a pull request! Likewise if you found something in this documentation not clear or imprecise.</p>
+or a pull request! Likewise if you found something in this documentation not clear or imprecise.
+“”“</p>
 </article>
     <div id="prevnext">
-        
-        <a></a>
-        <a href="/config.html">Configuration -&gt;</a>
-    </div>
+    
+    <a></a>
+    <a href="/config.html">Configuration →</a>
 </div>
 </div>
-<footer id="footer">
-    Created with <strong><span class="blades-logo"></span>blades</strong>
-    (of course - check the <a href="https://github.com/grego/bladesite" target="_blank">source</a>)
-    by <a href="https://grego.site">Maroš Grego</a>.
-    No JavaScript used.
-</footer>
+</div>
+<footer id="footer">Created with <strong><span class="blades-logo"></span>blades</strong>
+(of course - check the <a href="https://github.com/grego/bladesite">source</a>)
+by <a href="https://grego.site">Maroš Grego</a>.
+No JavaScript used.</footer>
 </body>
 </html>
