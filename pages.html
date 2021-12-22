@@ -30,8 +30,11 @@
       
       <a class="navlink " href="/themes/">Themes</a>
       
+      <a class="navlink " href="/plugins/">Plugins</a>
       
-        <a class="navlink" target="_blank" href="https://github.com/grego/blades">Contribute</a>
+      
+        <a class="navlink" target="_blank" href="<p>https://github.com/grego/blades</p>
+">Contribute</a>
       
     </nav>
 </div>
@@ -45,6 +48,8 @@
         <a class="pagelink active" href="/pages.html">Pages</a>
     
         <a class="pagelink " href="/templates.html">Templates</a>
+    
+        <a class="pagelink " href="/making-plugins.html">Making plugins</a>
     </nav>
 </div>
 <div class="full">
@@ -86,6 +91,9 @@ All of them are optional, default values are shown. <br>
 <var>hidden</var> = <span>false</span>
 <i>#A list of alternative paths to render this page in, relative to the output directory</i>
 <var>alternative_paths</var> = <u>[]</u>
+
+<i>#A list of content plugins to transform the content of this page with</i>
+<var>plugins</var> = <u>[]</u>
 
 <i># A template to render this page with.</i>
 <i># If none is specified, the one specified in the parent section is used</i>
@@ -132,7 +140,7 @@ All of them are optional, default values are shown. <br>
 <p>For pages that are not sections, you can additionally specify these variables
 (defaults are suggested):</p>
 <pre><code class="language-toml"><i># The path in the output directory this page is rendered into*</i>
-<var>path</var> = <span>&quot;{{ parent directory of the page within the content directory }}&quot;</span>
+<var>path</var> = <span>&quot;{{ parent directory of the page }}&quot;</span>
 <i># The file name this page is rendered into, without the .html extension*</i>
 <var>slug</var> = <span>&quot;{{ file name without the extension }}&quot;</span>
 </code></pre></article>
@@ -143,9 +151,10 @@ All of them are optional, default values are shown. <br>
 </div>
 </div>
 </div>
-<footer id="footer">Created with <strong><span class="blades-logo"></span>blades</strong>
+<footer id="footer"><p>Created with <strong><span class="blades-logo"></span>blades</strong>
 (of course - check the <a href="https://github.com/grego/bladesite">source</a>)
 by <a href="https://grego.site">Maroš Grego</a>.
-No JavaScript used.</footer>
+No JavaScript used.</p>
+</footer>
 </body>
 </html>

@@ -5,7 +5,7 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
 	<meta charset="utf-8">
 	
-	<title>BLADE.386 | Blades</title>
+	<title>Plugins | Blades</title>
 	<meta name="author" content="Maros Grego">
 	
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -30,7 +30,7 @@
       
       <a class="navlink " href="/themes/">Themes</a>
       
-      <a class="navlink " href="/plugins/">Plugins</a>
+      <a class="navlink  active" href="/plugins/">Plugins</a>
       
       
         <a class="navlink" target="_blank" href="<p>https://github.com/grego/blades</p>
@@ -40,30 +40,29 @@
 </div>
 <div id="container">
 <div class="full">
-    <article id="content">
-        <h1>BLADE.386</h1>
-        
-        <img src="/img/blade.png"/>
-        <p>For people who like the MS-DOS æsthetics</p>
-        <p><a href="https://blade386.netlify.app/" target="_blank">Live demo</a></p>
-        <p>To use this theme, simply clone it into your <code>themes</code> directory:</p>
-<pre><code class="language-sh"><strong>cd</strong> themes
-<strong>git</strong> clone https://github.com/grego/BLADE.386
-</code></pre>
-<p>Or use it as a submodule:</p>
-<pre><code class="language-sh"><strong>cd</strong> themes
-<strong>git</strong> submodule add https://github.com/grego/BLADE.386
-</code></pre>
-<p>Then, set it in your <a href="/config.html">config</a>.</p>
-<pre><code class="language-toml"><var>theme</var> = <span>&quot;BLADE.386&quot;</span>
-</code></pre>
-        <p><a href="https://github.com/grego/BLADE.386" target="_blank">Repository</a></p>
-    </article>
-    <div id="prevnext">
-    <a href="/themes/after-dark.html">← after-dark</a>
+    <article id="content"><p>There are 4 types of plugins that can be used with Blades.</p>
+<ul>
+<li><strong>input</strong> - they can be used to get pages from different sources</li>
+<li><strong>output</strong> - they can be used to generate further page data, such as processed images</li>
+<li><strong>transform</strong> - they can transform anything on all of the pages</li>
+<li><strong>content</strong> - they transform markdowned content of a particular page</li>
+</ul>
+<p>The plugins can be set up in the <a href="/config.html">config</a>.</p>
+<p>Here is a list of known plugins. To contribute your own, submit a PR to the <a href="https://github.com/grego/blades-plugins">plugin repository</a>.</p>
+</article>
+    <section id="theme-grid">
+        <a class="theme shadowed" href="/plugins/katex-rs.html">
+            
+            <h1>KaTeX - Rust</h1>
+            <p>Render math formulas using KaTeX - written in Rust</p>
+        </a>
     
-    
-</div>
+        <a class="theme shadowed" href="/plugins/katex-js.html">
+            
+            <h1>KaTeX - JavaScript</h1>
+            <p>Render math formulas using KaTeX - written in JavaScript</p>
+        </a>
+    </section>
 </div>
 </div>
 <footer id="footer"><p>Created with <strong><span class="blades-logo"></span>blades</strong>

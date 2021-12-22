@@ -32,7 +32,31 @@
     
 
     <url>
+        <loc>/making-plugins.html</loc>
+        <priority>0.5</priority>
+    </url>
+    
+
+    <url>
         <loc>/themes/</loc>
+        <priority>0.5</priority>
+    </url>
+    
+
+    <url>
+        <loc>/plugins/</loc>
+        <priority>0.5</priority>
+    </url>
+    
+
+    <url>
+        <loc>/plugins/katex-rs.html</loc>
+        <priority>0.5</priority>
+    </url>
+    
+
+    <url>
+        <loc>/plugins/katex-js.html</loc>
         <priority>0.5</priority>
     </url>
     

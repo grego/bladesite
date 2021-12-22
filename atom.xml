@@ -13,7 +13,7 @@
     
     <subtitle></subtitle>
     <generator>blades</generator>
-    <updated>2021-12-21T23:56:44Z</updated>
+    <updated>2021-12-22T16:04:59Z</updated>
 
 
     <entry>
@@ -62,7 +62,7 @@ is welcome! <code>:)</code></p>
 <h2>Why <em><code>blades</code></em>?</h2>
 <p>They shave the <a href="https://mustache.github.io/mustache.5.html">mustache</a> off.</p>
 </content>
-        <updated>2021-12-17T23:40:57Z</updated>
+        
     </entry>
     
 
@@ -112,7 +112,7 @@ and <a href="https://en.wikipedia.org/wiki/RSS">RSS</a> (into <code>rss.xml</cod
 or a pull request! Likewise if you found something in this documentation not clear or imprecise.
 “”“</p>
 </content>
-        <updated>2021-12-17T23:40:57Z</updated>
+        
     </entry>
     
 
@@ -166,8 +166,22 @@ variables can be set. All of them are optional, default values are shown.</p>
 <i># Example with default values:</i>
 <var>tags</var> = <u>{</u> <var>name</var> = <span>&quot;&quot;</span>, <var>description</var> = <span>&quot;&quot;</span>, <var>template</var> = <span>&quot;taxonomy.html&quot;</span>, <var>key_template</var> = <span>&quot;taxonomy_key.html&quot;</span>, <var>paginate_by</var> = <span>inf</span>, <var>sort_by_weight</var> = <span>false</span> <u>}</u>
 <i># If provided, 'paginate_by' must be a positive integer</i>
+
+<i># Plugins to use in the site</i>
+<u>[</u><strong>plugins</strong><u>]</u>
+<i># Commands to run as input plugins</i>
+<var>input</var> = <u>[]</u>
+<i># Commands to run as output plugins</i>
+<var>output</var> = <u>[]</u>
+<i># Commands to run as transform plugins</i>
+<var>transform</var> = <u>[]</u>
+<i># A map of a short name and a command to run as a content plugin</i>
+<i># Each one can then be enabled on a particular page to transform its content</i>
+<var>content</var> = <u>{}</u>
+<i># A list of content plugins (specified above) to run on every page</i>
+<var>default</var> = <u>[]</u>
 </code></pre></content>
-        <updated>2021-12-17T23:40:57Z</updated>
+        
     </entry>
     
 
@@ -214,6 +228,9 @@ All of them are optional, default values are shown. <br>
 <i>#A list of alternative paths to render this page in, relative to the output directory</i>
 <var>alternative_paths</var> = <u>[]</u>
 
+<i>#A list of content plugins to transform the content of this page with</i>
+<var>plugins</var> = <u>[]</u>
+
 <i># A template to render this page with.</i>
 <i># If none is specified, the one specified in the parent section is used</i>
 <var>template</var> = <span>&quot;&quot;</span>
@@ -259,11 +276,11 @@ All of them are optional, default values are shown. <br>
 <p>For pages that are not sections, you can additionally specify these variables
 (defaults are suggested):</p>
 <pre><code class="language-toml"><i># The path in the output directory this page is rendered into*</i>
-<var>path</var> = <span>&quot;{{ parent directory of the page within the content directory }}&quot;</span>
+<var>path</var> = <span>&quot;{{ parent directory of the page }}&quot;</span>
 <i># The file name this page is rendered into, without the .html extension*</i>
 <var>slug</var> = <span>&quot;{{ file name without the extension }}&quot;</span>
 </code></pre></content>
-        <updated>2021-12-17T23:40:57Z</updated>
+        
     </entry>
     
 
@@ -272,12 +289,14 @@ All of them are optional, default values are shown. <br>
         <link rel="alternate" href="/templates.html" />
         <id>/templates</id>
         <summary></summary>
-        <content><p>Blades uses <a href="https://mustache.github.io/mustache.5.html">mustache</a> templates with the amazingly fast
-<a href="https://github.com/maciejhirsz/ramhorns">Ramhorns</a> engine. While their syntax is extremely simple
+        <content><p>Blades uses <a href="https://mustache.github.io/mustache.5.html">mustache</a> templates with the 
+<a href="https://github.com/maciejhirsz/ramhorns">Ramhorns</a> engine. While their syntax is simple
 (and can be learned in a few minutes), they are surprisingly expressive.</p>
-<p>The templates are loaded from the <code>templates</code> subdirectory, or secondarily from the <code>$theme_dir/$theme/templates</code>
-directory if a theme is specified in the <a href="config.html">config</a>.
-Here is the list of variables at your disposal, all with their type specified.</p>
+<p>Templates are loaded from the <code>templates</code> subdirectory, or secondarily from the <code>themes/$theme/templates</code>
+directory if a theme is specified in the <a href="config.html">config</a>.</p>
+<p>Here is the list of variables available to use in templates. Apart from these,
+<strong>any</strong> other variable of <strong>any type</strong> specified on the <a href="/page.html">page</a>
+or in the <a href="/config.html">site config</a> can also be used.</p>
 <p>These variables are common for all pages:</p>
 <code class="highlighted">
 <p><em>// The data of the whole site</em>
@@ -333,9 +352,7 @@ Here is the list of variables at your disposal, all with their type specified.</
 <strong>subsections</strong>: List&lt;<a href="#page">Page</a>&gt;
 <em>// Available when the subpages are paginated</em>
 <strong>pagination</strong>: Option&lt;<a href="#pagination">Pagination</a>&gt;</p>
-<p><em>// The user provided values of any type</em>
-<strong>extra</strong>: Map&lt;string, Any&gt;
-<em>// Marks whether this page is the active one</em>
+<p><em>// Marks whether this page is the active one</em>
 <em>// Can be used to highlight the current page in a list of pages</em>
 <strong>active</strong>: bool</p>
 </code>
@@ -476,8 +493,6 @@ gets the following variables:</p>
 <strong>implicit_taxonomies</strong>: bool
 <em>// Are pages without date provided assigned the date of file creation?</em>
 <strong>dates_of_creation</strong>: bool</p>
-<p><em>// The user provided values of any type</em>
-<strong>extra</strong>: Map&lt;string, Any&gt;</p>
 </code>
 <h3>Author</h3>
 <p>Info about the site author, available as a subsection of <a href="#site">site</a>
@@ -489,7 +504,55 @@ gets the following variables:</p>
 <strong>avatar</strong>: string</p>
 </code>
 </content>
-        <updated>2021-12-17T23:40:57Z</updated>
+        
+    </entry>
+    
+
+    <entry>
+        <title>Making plugins</title>
+        <link rel="alternate" href="/making-plugins.html" />
+        <id>/making-plugins</id>
+        <summary></summary>
+        <content><p>Blades has a versatile extension system, where a plugin can be written in any language
+that can read from standard input and write to the standard output.
+Each plugin is run at the appropriate stage of site rendering.</p>
+<p>Check out the already made <a href="/plugins/index.html">plugins</a>.</p>
+<p>There are 4 types of plugins that can be used with Blades.</p>
+<ul>
+<li><strong>input</strong> - they put a JSON-serialised list of <a href="/pages.html">pages</a> on the standard output, can be used
+to get pages from different sources</li>
+<li><strong>output</strong> - they receive a JSON-serialised list of <a href="/pages.html">pages</a> on the standard input and can be
+used to generate further page data, such as processed images</li>
+<li><strong>transform</strong> - they receive a JSON-serialised list of <a href="/pages.html">pages</a> on the standard input and output
+another such list on the standard output, can transform anything on the pages</li>
+<li><strong>content</strong> - they receive a markdown content of one page on standard input and output markdown on the standard output; they are enabled
+on per-page basis</li>
+</ul>
+<p>The plugins can be set up in the <a href="/config.html">config</a>.</p>
+<h3>Serialised page data</h3>
+<p>All the data specified for every <a href="/pages.html">page</a> is available in the serialised list of pages.
+It contains only the fields that were explicitly set, so no field can be assumed to be
+present or non-present.
+For Rust, Blades also provides a
+<a href="https://docs.rs/blades">library</a> for automatic serialisation and deserialisation of pages.</p>
+<h3>Example</h3>
+<p>An example plugin can be found in the <a href="https://github.com/grego/blades">Blades repository</a>
+in the <code>examples</code> directory.
+To try it, clone it and downolad the theme as a submodule</p>
+<pre><code class="language-bash"><strong>git</strong> clone https://github.com/grego/blades
+<strong>cd</strong> blades
+<strong>git</strong> submodule update --init
+</code></pre>
+<p>Then build the plugin:</p>
+<pre><code class="language-bash"><strong>cargo</strong> build --release transform_plugin
+</code></pre>
+<p>Then run Blades in the <code>examples</code> directory:</p>
+<pre><code class="language-bash"><strong>cd</strong> examples
+<strong>cargo</strong> run --release
+</code></pre>
+<p>Or check some <a href="/plugins/index.html">real plugins</a>.</p>
+</content>
+        
     </entry>
     
 
@@ -508,7 +571,78 @@ gets the following variables:</p>
 </code></pre>
 <p>To contribute your own theme, submit a PR to the <a href="https://github.com/grego/blades-themes">themes repository</a>.</p>
 </content>
-        <updated>2021-12-17T23:40:57Z</updated>
+        
+    </entry>
+    
+
+    <entry>
+        <title>Plugins</title>
+        <link rel="alternate" href="/plugins/" />
+        <id>/plugins</id>
+        <summary></summary>
+        <content><p>There are 4 types of plugins that can be used with Blades.</p>
+<ul>
+<li><strong>input</strong> - they can be used to get pages from different sources</li>
+<li><strong>output</strong> - they can be used to generate further page data, such as processed images</li>
+<li><strong>transform</strong> - they can transform anything on all of the pages</li>
+<li><strong>content</strong> - they transform markdowned content of a particular page</li>
+</ul>
+<p>The plugins can be set up in the <a href="/config.html">config</a>.</p>
+<p>Here is a list of known plugins. To contribute your own, submit a PR to the <a href="https://github.com/grego/blades-plugins">plugin repository</a>.</p>
+</content>
+        
+    </entry>
+    
+
+    <entry>
+        <title>KaTeX - Rust</title>
+        <link rel="alternate" href="/plugins/katex-rs.html" />
+        <id>/plugins/katex-rs</id>
+        <summary>Render math formulas using KaTeX - written in Rust</summary>
+        <content><p>Blades natively supports rendering LaTeX formulas into <a href="https://developer.mozilla.org/docs/Web/MathML">MathML</a>.
+Sadly, Chromium-based browsers don’t support it.
+This plugin renders the formulas into HTML using <a href="https://katex.org">KaTeX</a>,
+run with the QuickJS enginge.
+Formulas delimited by <code>$</code> are rendered in inline mode and by <code>$$</code> in display mode.</p>
+<p>This plugin can be installed as</p>
+<pre><code class="language-bash"><strong>cargo</strong> install blades-katex
+</code></pre>
+<p>Then, it can be used in Blades as</p>
+<pre><code class="language-toml"><u>[</u><strong>plugins</strong>.<em>content</em><u>]</u>
+<var>katex</var> = <span>&quot;blades-katex&quot;</span>
+</code></pre>
+<p>On each page where KaTeX should be rendered, it can be enabled by</p>
+<pre><code class="language-toml"><var>plugins</var> = <u>[</u><span>&quot;katex&quot;</span><u>]</u>
+</code></pre></content>
+        
+    </entry>
+    
+
+    <entry>
+        <title>KaTeX - JavaScript</title>
+        <link rel="alternate" href="/plugins/katex-js.html" />
+        <id>/plugins/katex-js</id>
+        <summary>Render math formulas using KaTeX - written in JavaScript</summary>
+        <content><p>Blades natively supports rendering LaTeX formulas into <a href="https://developer.mozilla.org/docs/Web/MathML">MathML</a>.
+Sadly, Chromium-based browsers don’t support it.
+This plugin renders the formulas into HTML using <a href="https://katex.org">KaTeX</a>.
+Formulas delimited by <code>$</code> are rendered in inline mode and by <code>$$</code> in display mode.</p>
+<p>Be aware there is a <a href="/plugins/katex-rs.html">Rust version</a> that does the same,
+but faster.</p>
+<p>This plugin can be installed as</p>
+<pre><code class="language-bash"><strong>yarn</strong> global add https://github.com/grego/blades-katex
+</code></pre>
+<p>Then, it can be used in Blades as</p>
+<pre><code class="language-toml"><u>[</u><strong>plugins</strong>.<em>content</em><u>]</u>
+<var>katex</var> = <span>&quot;blades-katex&quot;</span>
+</code></pre>
+<p>On each page where KaTeX should be rendered, it can be enabled by</p>
+<pre><code class="language-toml"><var>plugins</var> = <u>[</u><span>&quot;katex&quot;</span><u>]</u>
+</code></pre>
+<p>This plugin is basically a stripped-down version of
+<a href="https://katex.org/docs/autorender.html">auto-render extension</a> for KaTeX.</p>
+</content>
+        
     </entry>
     
 
@@ -516,10 +650,19 @@ gets the following variables:</p>
         <title>casper</title>
         <link rel="alternate" href="/themes/casper.html" />
         <id>/themes/casper</id>
-        <summary></summary>
-        <content><p>A clean blog theme, loosely based on the old Ghost.io default, but without JavaScript</p>
-</content>
-        <updated>2021-12-17T23:40:57Z</updated>
+        <summary>A clean blog theme, loosely based on the old Ghost.io default, but without JavaScript</summary>
+        <content><p>To use this theme, simply clone it into your <code>themes</code> directory:</p>
+<pre><code class="language-sh"><strong>cd</strong> themes
+<strong>git</strong> clone https://github.com/grego/casper
+</code></pre>
+<p>Or use it as a submodule:</p>
+<pre><code class="language-sh"><strong>cd</strong> themes
+<strong>git</strong> submodule add https://github.com/grego/casper
+</code></pre>
+<p>Then, set it in your <a href="/config.html">config</a>.</p>
+<pre><code class="language-toml"><var>theme</var> = <span>&quot;casper&quot;</span>
+</code></pre></content>
+        
     </entry>
     
 
@@ -527,10 +670,19 @@ gets the following variables:</p>
         <title>after-dark</title>
         <link rel="alternate" href="/themes/after-dark.html" />
         <id>/themes/after-dark</id>
-        <summary></summary>
-        <content><p>Secure and accessible dark theme</p>
-</content>
-        <updated>2021-12-17T23:40:57Z</updated>
+        <summary>Secure and accessible dark theme</summary>
+        <content><p>To use this theme, simply clone it into your <code>themes</code> directory:</p>
+<pre><code class="language-sh"><strong>cd</strong> themes
+<strong>git</strong> clone https://github.com/grego/after-dark
+</code></pre>
+<p>Or use it as a submodule:</p>
+<pre><code class="language-sh"><strong>cd</strong> themes
+<strong>git</strong> submodule add https://github.com/grego/after-dark
+</code></pre>
+<p>Then, set it in your <a href="/config.html">config</a>.</p>
+<pre><code class="language-toml"><var>theme</var> = <span>&quot;after-dark&quot;</span>
+</code></pre></content>
+        
     </entry>
     
 
@@ -538,10 +690,19 @@ gets the following variables:</p>
         <title>BLADE.386</title>
         <link rel="alternate" href="/themes/BLADE.html" />
         <id>/themes/BLADE</id>
-        <summary></summary>
-        <content><p>For people who like the MS-DOS æsthetics</p>
-</content>
-        <updated>2021-12-17T23:40:57Z</updated>
+        <summary>For people who like the MS-DOS æsthetics</summary>
+        <content><p>To use this theme, simply clone it into your <code>themes</code> directory:</p>
+<pre><code class="language-sh"><strong>cd</strong> themes
+<strong>git</strong> clone https://github.com/grego/BLADE.386
+</code></pre>
+<p>Or use it as a submodule:</p>
+<pre><code class="language-sh"><strong>cd</strong> themes
+<strong>git</strong> submodule add https://github.com/grego/BLADE.386
+</code></pre>
+<p>Then, set it in your <a href="/config.html">config</a>.</p>
+<pre><code class="language-toml"><var>theme</var> = <span>&quot;BLADE.386&quot;</span>
+</code></pre></content>
+        
     </entry>
     
 

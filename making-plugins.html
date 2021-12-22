@@ -1,0 +1,109 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html" charset="UTF-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+	<meta charset="utf-8">
+	
+	<title>Making plugins | Blades</title>
+	<meta name="author" content="Maros Grego">
+	
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+	<link href="/rss.xml" rel="alternate" title="Blades" type="application/rss+xml">
+	<link href="/atom.xml" rel="alternate" title="Blades" type="application/atom+xml">
+	<link href="/assets/style.css" media="screen, projection" rel="stylesheet" type="text/css">
+    
+	<!-- This tag is necessary since the modern browsers, the pinnacle of human engineering,
+	     trigger CSS transitions on page load without script tags present (Chromium issue 332189, same on FF),
+	     This bug is present since 2012. -->
+	<script src="/doesnt_exist.js"></script>
+</head>
+<body>
+<div id="topbar">
+    <div id="logo">
+        <a href="/"><span class="blades-logo"></span>Blades</a>
+    </div>
+    <input id="burger-check" class="control-button" type="checkbox">
+    <nav id="nav">
+      <a class="navlink" href="/">Home</a>
+      
+      <a class="navlink " href="/themes/">Themes</a>
+      
+      <a class="navlink " href="/plugins/">Plugins</a>
+      
+      
+        <a class="navlink" target="_blank" href="<p>https://github.com/grego/blades</p>
+">Contribute</a>
+      
+    </nav>
+</div>
+<div id="container">
+<div id="navwrap">
+    <nav id="pagesnav" class="shadowed">
+        <a class="pagelink " href="/getting_started.html">Getting started</a>
+    
+        <a class="pagelink " href="/config.html">Configuration</a>
+    
+        <a class="pagelink " href="/pages.html">Pages</a>
+    
+        <a class="pagelink " href="/templates.html">Templates</a>
+    
+        <a class="pagelink active" href="/making-plugins.html">Making plugins</a>
+    </nav>
+</div>
+<div class="full">
+    <h1 id="pagetitle">Making plugins</h1>
+    <article id="content"><p>Blades has a versatile extension system, where a plugin can be written in any language
+that can read from standard input and write to the standard output.
+Each plugin is run at the appropriate stage of site rendering.</p>
+<p>Check out the already made <a href="/plugins/index.html">plugins</a>.</p>
+<p>There are 4 types of plugins that can be used with Blades.</p>
+<ul>
+<li><strong>input</strong> - they put a JSON-serialised list of <a href="/pages.html">pages</a> on the standard output, can be used
+to get pages from different sources</li>
+<li><strong>output</strong> - they receive a JSON-serialised list of <a href="/pages.html">pages</a> on the standard input and can be
+used to generate further page data, such as processed images</li>
+<li><strong>transform</strong> - they receive a JSON-serialised list of <a href="/pages.html">pages</a> on the standard input and output
+another such list on the standard output, can transform anything on the pages</li>
+<li><strong>content</strong> - they receive a markdown content of one page on standard input and output markdown on the standard output; they are enabled
+on per-page basis</li>
+</ul>
+<p>The plugins can be set up in the <a href="/config.html">config</a>.</p>
+<h3>Serialised page data</h3>
+<p>All the data specified for every <a href="/pages.html">page</a> is available in the serialised list of pages.
+It contains only the fields that were explicitly set, so no field can be assumed to be
+present or non-present.
+For Rust, Blades also provides a
+<a href="https://docs.rs/blades">library</a> for automatic serialisation and deserialisation of pages.</p>
+<h3>Example</h3>
+<p>An example plugin can be found in the <a href="https://github.com/grego/blades">Blades repository</a>
+in the <code>examples</code> directory.
+To try it, clone it and downolad the theme as a submodule</p>
+<pre><code class="language-bash"><strong>git</strong> clone https://github.com/grego/blades
+<strong>cd</strong> blades
+<strong>git</strong> submodule update --init
+</code></pre>
+<p>Then build the plugin:</p>
+<pre><code class="language-bash"><strong>cargo</strong> build --release transform_plugin
+</code></pre>
+<p>Then run Blades in the <code>examples</code> directory:</p>
+<pre><code class="language-bash"><strong>cd</strong> examples
+<strong>cargo</strong> run --release
+</code></pre>
+<p>Or check some <a href="/plugins/index.html">real plugins</a>.</p>
+</article>
+    <div id="prevnext">
+    <a href="/templates.html">← Templates</a>
+    
+    
+</div>
+</div>
+</div>
+<footer id="footer"><p>Created with <strong><span class="blades-logo"></span>blades</strong>
+(of course - check the <a href="https://github.com/grego/bladesite">source</a>)
+by <a href="https://grego.site">Maroš Grego</a>.
+No JavaScript used.</p>
+</footer>
+</body>
+</html>

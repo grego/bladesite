@@ -5,7 +5,7 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
 	<meta charset="utf-8">
 	
-	<title>BLADE.386 | Blades</title>
+	<title>KaTeX - Rust | Blades</title>
 	<meta name="author" content="Maros Grego">
 	
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -41,28 +41,32 @@
 <div id="container">
 <div class="full">
     <article id="content">
-        <h1>BLADE.386</h1>
+        <h1>KaTeX - Rust</h1>
         
-        <img src="/img/blade.png"/>
-        <p>For people who like the MS-DOS æsthetics</p>
-        <p><a href="https://blade386.netlify.app/" target="_blank">Live demo</a></p>
-        <p>To use this theme, simply clone it into your <code>themes</code> directory:</p>
-<pre><code class="language-sh"><strong>cd</strong> themes
-<strong>git</strong> clone https://github.com/grego/BLADE.386
+        
+        <p>Render math formulas using KaTeX - written in Rust</p>
+        
+        <p>Blades natively supports rendering LaTeX formulas into <a href="https://developer.mozilla.org/docs/Web/MathML">MathML</a>.
+Sadly, Chromium-based browsers don’t support it.
+This plugin renders the formulas into HTML using <a href="https://katex.org">KaTeX</a>,
+run with the QuickJS enginge.
+Formulas delimited by <code>$</code> are rendered in inline mode and by <code>$$</code> in display mode.</p>
+<p>This plugin can be installed as</p>
+<pre><code class="language-bash"><strong>cargo</strong> install blades-katex
 </code></pre>
-<p>Or use it as a submodule:</p>
-<pre><code class="language-sh"><strong>cd</strong> themes
-<strong>git</strong> submodule add https://github.com/grego/BLADE.386
+<p>Then, it can be used in Blades as</p>
+<pre><code class="language-toml"><u>[</u><strong>plugins</strong>.<em>content</em><u>]</u>
+<var>katex</var> = <span>&quot;blades-katex&quot;</span>
 </code></pre>
-<p>Then, set it in your <a href="/config.html">config</a>.</p>
-<pre><code class="language-toml"><var>theme</var> = <span>&quot;BLADE.386&quot;</span>
+<p>On each page where KaTeX should be rendered, it can be enabled by</p>
+<pre><code class="language-toml"><var>plugins</var> = <u>[</u><span>&quot;katex&quot;</span><u>]</u>
 </code></pre>
-        <p><a href="https://github.com/grego/BLADE.386" target="_blank">Repository</a></p>
+        <p><a href="https://github.com/grego/blades-katex-rs" target="_blank">Repository</a></p>
     </article>
     <div id="prevnext">
-    <a href="/themes/after-dark.html">← after-dark</a>
     
-    
+    <a></a>
+    <a href="/plugins/katex-js.html">KaTeX - JavaScript →</a>
 </div>
 </div>
 </div>
