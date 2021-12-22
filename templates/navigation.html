@@ -1,13 +1,15 @@
 <div id="topbar">
     <div id="logo">
-        <span class="blades-logo"></span>{{#site}}{{title}}{{/site}}
+        <a href="{{site url}}/"><span class="blades-logo"></span>{{site title}}</a>
     </div>
     <input id="burger-check" class="control-button" type="checkbox">
     <nav id="nav">
-      {{#index}}<a class="navlink{{#active}} active{{/active}}" href="{{permalink}}">home</a>
+      {{#index}}<a class="navlink{{#active}} active{{/active}}" href="{{permalink}}">Home</a>
       {{#subsections}}
       <a class="navlink {{#active}} active{{/active}}" href="{{permalink}}">{{title}}</a>
       {{/subsections}}{{/index}}
-      <a class="navlink" target="_blank" href="{{#site}}{{#extra}}{{{repository}}}{{/extra}}{{/site}}">contribute</a>
+      {{#site repository}}
+        <a class="navlink" target="_blank" href="{{repository}}">Contribute</a>
+      {{/repository site}}
     </nav>
 </div>

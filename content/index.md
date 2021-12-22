@@ -1,6 +1,7 @@
++++
 title = "Index"
 sort_by_weight = true
-content = """
++++
 <code class="highlighted">
 
 **bla**zing fast
@@ -9,22 +10,32 @@ content = """
 
 </code>
 
-Blades is made to do one job and do it well - generate HTML files from the provided
+
+Blades is made to do one job - generate HTML files from the provided
 content using the provided templates.  
-Thanks to the amazing [Ramhorns](https://github.com/maciejhirsz/ramhorns) templating engine,
+Thanks to [Ramhorns](https://github.com/maciejhirsz/ramhorns) templating engine,
 [zero-copy](https://serde.rs/lifetimes.html#borrowing-data-in-a-derived-impl) deserialisation
 and [rayon](https://github.com/rayon-rs/rayon) parallel iterators, it renders the whole site in
 milliseconds, possibly more than [10 times](https://github.com/grego/ssg-bench) faster than other generators like Hugo.
 
 It's made for easy setup and use. A static site generator should be a no brainer.
 It uses [mustache](https://mustache.github.io/mustache.5.html) templates with extremely minimal
-and obvious syntax (really, like 7 rules!), while providing the necessary building blocks
+and obvious syntax (like 7 rules!), providing the necessary building blocks
 to let you focus on your content.
 
-You may categorise your pages into taxonomies (like categories or tags), use the usual features
-like pagination or breadcrumbs and even generate image galleries.  
-Sitemap and RSS feed are automatically rendered.  
-All done without hassle, faster than you blink.
+## Features
+* Powerful plugin system
+* Themes
+* Image gallery generation
+* [CommonMark](https://commonmark.org) markdown with tables and footnotes for content
+* Automatic syntax highlighting using [cmark-syntax](https://github.com/grego/cmark-syntax)
+  (with a possibility of turning LaTeX formulas into [MathML](https://developer.mozilla.org/docs/Web/MathML))
+* Customisable taxonomies (like categories or tags)
+* Pagination
+* Breadcrumbs
+* Asset colocation
+* Table of contents with access to all of the site data
+* Automatic sitemap, Atom and RSS feed generation
 
 ## Why not _`blades`_?
 Unlike other monolithic generators, Blades is modest in its scope. All it does is generating your site.
@@ -38,6 +49,3 @@ is welcome! `:)`
 
 ## Why _`blades`_?
 They shave the [mustache](https://mustache.github.io/mustache.5.html) off.
-"""
-
-extra.haha = inf

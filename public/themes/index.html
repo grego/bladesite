@@ -22,21 +22,30 @@
 <body>
 <div id="topbar">
     <div id="logo">
-        <span class="blades-logo"></span>Blades
+        <a href="/"><span class="blades-logo"></span>Blades</a>
     </div>
     <input id="burger-check" class="control-button" type="checkbox">
     <nav id="nav">
-      <a class="navlink" href="/">home</a>
+      <a class="navlink" href="/">Home</a>
       
       <a class="navlink  active" href="/themes/">Themes</a>
       
-      <a class="navlink" target="_blank" href="https://github.com/grego/blades">contribute</a>
+      
+        <a class="navlink" target="_blank" href="https://github.com/grego/blades">Contribute</a>
+      
     </nav>
 </div>
 <div id="container">
 <div class="full">
-    <article id="content"><p>Any site that doesn't use a theme can be used as a theme for another site.<br />
-To contribute your own, submit a PR to the <a href="https://github.com/grego/blades-themes">themes repository</a>.</p>
+    <article id="content"><p>Any site that doesn’t use a theme can be used as a theme for another site.</p>
+<p>To use it, simply clone it into the themes directory.</p>
+<pre><code class="language-sh"><strong>cd</strong> themes
+<strong>git</strong> clone <var>$site_repository</var>
+</code></pre>
+<p>Then, set it as a theme in <code>Blades.toml</code>:</p>
+<pre><code class="language-toml"><var>theme</var> = <span>&quot;$site_name&quot;</span>
+</code></pre>
+<p>To contribute your own theme, submit a PR to the <a href="https://github.com/grego/blades-themes">themes repository</a>.</p>
 </article>
     <section id="theme-grid">
         <a class="theme shadowed" href="/themes/casper.html">
@@ -62,11 +71,9 @@ To contribute your own, submit a PR to the <a href="https://github.com/grego/bla
     </section>
 </div>
 </div>
-<footer id="footer">
-    Created with <strong><span class="blades-logo"></span>blades</strong>
-    (of course - check the <a href="https://github.com/grego/bladesite" target="_blank">source</a>)
-    by <a href="https://grego.site">Maroš Grego</a>.
-    No JavaScript used.
-</footer>
+<footer id="footer">Created with <strong><span class="blades-logo"></span>blades</strong>
+(of course - check the <a href="https://github.com/grego/bladesite">source</a>)
+by <a href="https://grego.site">Maroš Grego</a>.
+No JavaScript used.</footer>
 </body>
 </html>

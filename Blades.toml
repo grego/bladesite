@@ -4,8 +4,15 @@ keywords = ""
 image = ""
 theme = ""
 
+repository = "https://github.com/grego/blades"
+
+footer = """
+Created with **<span class="blades-logo"></span>blades**
+(of course - check the [source](https://github.com/grego/bladesite))
+by [Maroš Grego](https://grego.site).
+No JavaScript used.
+"""
+
 [author]
 name = "Maros Grego"
 
-[extra]
-repository = "https://github.com/grego/blades"

@@ -22,15 +22,17 @@
 <body>
 <div id="topbar">
     <div id="logo">
-        <span class="blades-logo"></span>Blades
+        <a href="/"><span class="blades-logo"></span>Blades</a>
     </div>
     <input id="burger-check" class="control-button" type="checkbox">
     <nav id="nav">
-      <a class="navlink" href="/">home</a>
+      <a class="navlink" href="/">Home</a>
       
       <a class="navlink " href="/themes/">Themes</a>
       
-      <a class="navlink" target="_blank" href="https://github.com/grego/blades">contribute</a>
+      
+        <a class="navlink" target="_blank" href="https://github.com/grego/blades">Contribute</a>
+      
     </nav>
 </div>
 <div id="container">
@@ -48,62 +50,61 @@
 <div class="full">
     <h1 id="pagetitle">Configuration</h1>
     <article id="content"><p>The site can be configured in the file <code>Blades.toml</code> in its root directory. There, the following
-variables can be set (all optional, default values shown):</p>
-<code class="highlighted">
-<p><em># Title of the site</em>
-<strong>title</strong> = &quot;&quot;
-<em># URL which the site is expected to be accessed through</em>
-<strong>url</strong> = &quot;&quot;
-<em># Name of the folder where theme templates and assets shall be loaded from,</em>
-<em># located in the themes directory (see below)</em>
-<strong>theme</strong> = &quot;&quot;
-<strong>description</strong> = &quot;&quot; 
-<strong>keywords</strong> = &quot;&quot;
-<strong>image</strong> = &quot;&quot;</p>
-<p><em># Generate sitemap</em>
-<strong>sitemap</strong> = true
-<em># Generate RSS feed</em>
-<strong>rss</strong> = true
-<em># Generate Atom feed</em>
-<strong>atom</strong> = true
-<em># Generate taxonomies that were not explicitly defined in this config</em>
-<strong>implicit_taxonomies</strong> = true
-<em># When no date for a page is specified, use the file creation date</em>
-<strong>dates_of_creation</strong> = true</p>
-<p><em># A directory where the content is loaded from</em>
-<strong>content_dir</strong> = &quot;content&quot;
-<em># A directory where the theme is loaded from</em>
-<strong>theme_dir</strong> = &quot;themes&quot;
-<em># A directory where the content is rendered to</em>
-<strong>output_dir</strong> = &quot;public&quot;
-<em># A subdirectory of the output directory where the assets are copied to</em>
-<strong>assets</strong> = &quot;assets&quot;</p>
-<p>[<strong>author</strong>]
-<strong>name</strong> = &quot;&quot;
-<strong>uri</strong> = &quot;&quot;
-<strong>email</strong> = &quot;&quot;
-<strong>avatar</strong> = &quot;&quot;</p>
-<p><em># A table of tables where you can specify some data about taxonomies</em>
-[<strong>taxonomies</strong>]
-<em># Example with default values:</em>
-<em>#tags = { name = &quot;&quot;, description = &quot;&quot;, template = &quot;taxonomy.html&quot;, key_template = &quot;taxonomy_key.html&quot;, paginate_by = ∞, sort_by_weight = false }</em>
-<em># If provided, 'paginate_by' must be a positive integer</em></p>
-<p><em># Any &quot;key = value&quot; of any type can be used here for templates</em>
-[<strong>extra</strong>]</p>
-</code>
-</article>
+variables can be set. All of them are optional, default values are shown.</p>
+<p><strong>Any</strong> other variable of <strong>any type</strong> can be set there and used in the templates, too.</p>
+<pre><code class="language-toml"><i># Title of the site</i>
+<var>title</var> = <span>&quot;&quot;</span>
+<i># URL which the site is expected to be accessed through</i>
+<var>url</var> = <span>&quot;&quot;</span>
+<i># Name of the folder where theme templates and assets shall be loaded from,</i>
+<i># located in the themes directory (see below)</i>
+<var>theme</var> = <span>&quot;&quot;</span>
+<var>description</var> = <span>&quot;&quot;</span> 
+<var>keywords</var> = <span>&quot;&quot;</span>
+<var>image</var> = <span>&quot;&quot;</span>
+
+<i># Generate sitemap</i>
+<var>sitemap</var> = <span>true</span>
+<i># Generate RSS feed</i>
+<var>rss</var> = <span>true</span>
+<i># Generate Atom feed</i>
+<var>atom</var> = <span>true</span>
+<i># Generate taxonomies that were not explicitly defined in this config</i>
+<var>implicit_taxonomies</var> = <span>true</span>
+<i># When no date for a page is specified, use the file creation date</i>
+<var>dates_of_creation</var> = <span>true</span>
+
+<i># A directory where the content is loaded from</i>
+<var>content_dir</var> = <span>&quot;content&quot;</span>
+<i># A directory where the theme is loaded from</i>
+<var>theme_dir</var> = <span>&quot;themes&quot;</span>
+<i># A directory where the content is rendered to</i>
+<var>output_dir</var> = <span>&quot;public&quot;</span>
+<i># A subdirectory of the output directory where the assets are copied to</i>
+<var>assets</var> = <span>&quot;assets&quot;</span>
+
+<u>[</u><strong>author</strong><u>]</u>
+<var>name</var> = <span>&quot;&quot;</span>
+<var>uri</var> = <span>&quot;&quot;</span>
+<var>email</var> = <span>&quot;&quot;</span>
+<var>avatar</var> = <span>&quot;&quot;</span>
+
+<i># A table of tables where you can specify some data about taxonomies</i>
+<u>[</u><strong>taxonomies</strong><u>]</u>
+<i># Example with default values:</i>
+<var>tags</var> = <u>{</u> <var>name</var> = <span>&quot;&quot;</span>, <var>description</var> = <span>&quot;&quot;</span>, <var>template</var> = <span>&quot;taxonomy.html&quot;</span>, <var>key_template</var> = <span>&quot;taxonomy_key.html&quot;</span>, <var>paginate_by</var> = <span>inf</span>, <var>sort_by_weight</var> = <span>false</span> <u>}</u>
+<i># If provided, 'paginate_by' must be a positive integer</i>
+</code></pre></article>
     <div id="prevnext">
-        <a href="/getting_started.html">&lt;- Getting started</a>
-        
-        <a href="/pages.html">Pages -&gt;</a>
-    </div>
+    <a href="/getting_started.html">← Getting started</a>
+    
+    <a href="/pages.html">Pages →</a>
 </div>
 </div>
-<footer id="footer">
-    Created with <strong><span class="blades-logo"></span>blades</strong>
-    (of course - check the <a href="https://github.com/grego/bladesite" target="_blank">source</a>)
-    by <a href="https://grego.site">Maroš Grego</a>.
-    No JavaScript used.
-</footer>
+</div>
+<footer id="footer">Created with <strong><span class="blades-logo"></span>blades</strong>
+(of course - check the <a href="https://github.com/grego/bladesite">source</a>)
+by <a href="https://grego.site">Maroš Grego</a>.
+No JavaScript used.</footer>
 </body>
 </html>

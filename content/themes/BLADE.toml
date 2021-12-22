@@ -3,6 +3,5 @@ image = "img/blade.png"
 weight = 2
 content = "For people who like the MS-DOS æsthetics"
 
-[extra]
 repository = "https://github.com/grego/BLADE.386"
 preview = "https://blade386.netlify.app/"

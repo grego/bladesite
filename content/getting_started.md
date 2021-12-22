@@ -1,27 +1,44 @@
++++
 title = "Getting started"
 weight = 0
-content = """
-Currently, Blades is available on [AUR](https://aur.archlinux.org/packages/blades-bin/).
++++
 
-If you have the Rust toolchain installed, you can install Blades from [Crates.io](https://crates.io/crates/blades)
-``` bash
+If you have the Rust toolchain installed, you can install Blades from [crates.io](https://crates.io/crates/blades)
+``` sh
 cargo install blades
 ```
-If you would like to have it included in your favourite package repository, [submit an issue](https://github.com/grego/blades).
+It is also available on [AUR](https://aur.archlinux.org/packages/blades-bin/).
 
 Then, you can run the executable `blades` with the following subcommands:
-* `init`: Initialise the site in the current directory, creating the basic files and folders
-* `build`: Build the site according to config, content, templates and themes in the current directory
-* `colocate`: Move the assets from the "assets" directory and from the theme, if one is used, into the output directory
-* `all`: Build the site and colocate the assets
-* `lazy`: Build the site and (colocate assets only if the theme was switched) [default]
-* `new`: Create a new page
+<div id="commands">
+
+`init` Initialise the site in the current directory, creating the basic files and folders
+
+`build` Build the site according to config, content, templates and themes in the current directory
+
+`colocate` Move the assets from the "assets" directory and from the theme, if one is used, into the output directory
+
+`all` Build the site and colocate the assets
+
+`lazy` Build the site and (colocate assets only if the theme was switched) [default]
+
+`new` Create a new page
+
+</div>
 
 ## Themes
 When you specify a theme in the [config](config.html), templates and assets from the theme are used.
 Every site that doesn't use a theme can be used as a theme for another site.
-Therefore, the easiest way to use a theme is to just clone the corresponding theme's repository
-into the `themes` directory. A list of available themes can be found [here](/themes).
+To use it, simply clone it into the themes directory.
+```sh
+cd themes
+git clone $site_repository
+```
+
+Then, set it as a theme in `Blades.toml`:
+```toml
+theme = "$site_name"
+```
 
 To overwrite the theme, simply use the files in the `templates`, resp. `assets` subdirectories of the
 page root directory.

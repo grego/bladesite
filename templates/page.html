@@ -7,10 +7,6 @@
 <div class="full">
     <h1 id="pagetitle">{{title}}</h1>
     <article id="content">{{content}}</article>
-    <div id="prevnext">
-        {{#previous}}<a href="{{path}}/{{slug}}.html">&lt;- {{title}}</a>{{/previous}}
-        {{^previous}}<a></a>{{/previous}}
-        {{#next}}<a href="{{path}}/{{slug}}.html">{{title}} -&gt;</a>{{/next}}
-    </div>
+    {{>prevnext.html}}
 </div>
 {{>foot.html}}
