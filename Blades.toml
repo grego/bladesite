@@ -1,8 +1,11 @@
 title = "Blades"
-description = ""
-keywords = ""
-image = ""
-theme = ""
+description = "Blazing fast dead simple static site generator"
+keywords = "static site generator, fast, rust"
+lang = "en-gb"
+logo = "<span class=\"blades-logo\"></span>"
+
+atom = false
+rss = false
 
 repository = "https://github.com/grego/blades"
 

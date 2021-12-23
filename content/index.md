@@ -44,7 +44,7 @@ watching the site for changes. For that, you can use a dedicated tool like
 [caretaker](https://github.com/grego/caretaker).
 
 Nevertheless, if you have a feature request or ran into some issue using Blades, please submit an
-[issue](https://github.com/grego/blades). It is a hobby project, so any contribution
+[issue](https://github.com/grego/blades). Any contribution
 is welcome! `:)`
 
 ## Why _`blades`_?

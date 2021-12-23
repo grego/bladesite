@@ -18,6 +18,8 @@ theme = ""
 description = "" 
 keywords = ""
 image = ""
+# A code for the language of the site, such as en-gb
+lang = ""
 
 # Generate sitemap
 sitemap = true

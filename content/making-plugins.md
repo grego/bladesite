@@ -21,7 +21,7 @@ There are 4 types of plugins that can be used with Blades.
 The plugins can be set up in the [config](/config.html).
 
 ### Serialised page data
-All the data specified for every [page](/pages.html) is available in the serialised list of pages.
+All the data specified on every [page](/pages.html) is available in the serialised list of pages.
 It contains only the fields that were explicitly set, so no field can be assumed to be
 present or non-present.
 For Rust, Blades also provides a

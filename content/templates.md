@@ -1,6 +1,7 @@
++++
 title = "Templates"
 weight = 4
-content = """
++++
 Blades uses [mustache](https://mustache.github.io/mustache.5.html) templates with the 
 [Ramhorns](https://github.com/maciejhirsz/ramhorns) engine. While their syntax is simple
 (and can be learned in a few minutes), they are surprisingly expressive.
@@ -272,4 +273,8 @@ Info about the site author, available as a subsection of [site](#site)
 
 </code>
 
-"""
+
+
+For an actual example of templates in Blades, you can take a look at the
+code of [this site](https://github.com/grego/blades), or of various
+[themes](/themes/index.html).

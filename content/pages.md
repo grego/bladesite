@@ -103,3 +103,6 @@ path = "{{ parent directory of the page }}"
 # The file name this page is rendered into, without the .html extension*
 slug = "{{ file name without the extension }}"
 ```
+
+For an actual example of pages in Blades, you can take a look at the
+code of [this site](https://github.com/grego/blades).
