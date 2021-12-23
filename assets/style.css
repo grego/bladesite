@@ -18,6 +18,9 @@ body {
     line-height: 1.6;
     background: var(--dark);
     min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 * {
@@ -121,7 +124,9 @@ ul {
     position: relative;
     width: 100vw;
     max-width: 1024px;
-    margin: auto;
+    /*! margin: auto; */
+    overflow-x: clip;
+    flex-shrink: 0;
 }
 
 .blades-logo::before {
@@ -258,13 +263,13 @@ ul {
 #container {
     width: 100%;
     max-width: 1024px;
-    margin: auto;
     display: flex;
     align-items: flex-start;
     flex-direction: column;
-    min-height: calc(100vh - 3em);
     justify-content: flex-end;
     z-index: 2;
+    flex-grow: 1;
+    margin-bottom: 1em;
 }
 
 #pagesnav {
@@ -313,8 +318,7 @@ ul {
 #prevnext {
     display: flex;
     justify-content: space-between;
-    /*! font-family: monospace; */
-    margin: 1.6em 1em 2em;
+    margin: 1.6em 1em 1em;
     background: var(--dark);
     font-size: 1.1em;
 }
@@ -330,30 +334,26 @@ ul {
 }
 
 #footer {
-
-    /*! margin: auto; */
     width: 100%;
     text-align: center;
-    background: var(--text);
     color: var(--bg);
     font-size: 0.8em;
-    padding: 1.2em 1em;
-    /*! height: 4em; */
+    padding: 0.8em 1em;
+    flex-shrink: 0;
 }
 
-#commands {
-
+#footer a {
+    color: var(--main);
+    text-decoration: none;
 }
 
 #commands p {
-
     text-indent: -0.5em;
     padding-left: 1em;
     margin: 0.3em 0;
 }
 
 #commands code {
-
     display: inline-block;
     min-width: 4em;
 }
