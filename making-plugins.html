@@ -75,7 +75,9 @@ on per-page basis</li>
 It contains only the fields that were explicitly set, so no field can be assumed to be
 present or non-present.
 For Rust, Blades also provides a
-<a href="https://docs.rs/blades">library</a> for automatic serialisation and deserialisation of pages.</p>
+<a href="https://docs.rs/blades">library</a> for automatic serialisation and deserialisation of pages.<br />
+(Note that at present, the version on crates.io is a bit outdated. For transform plugins, it is recommended
+to explicitly specify the <a href="https://github.com/grego/blades">git repository</a> of Blades in <code>Cargo.toml</code>.)</p>
 <h3>Example</h3>
 <p>An example plugin can be found in the <a href="https://github.com/grego/blades">Blades repository</a>
 in the <code>examples</code> directory.
