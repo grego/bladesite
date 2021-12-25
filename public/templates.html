@@ -71,9 +71,9 @@ or in the <a href="/config.html">site config</a> can also be used.</p>
 <em>// A dictionary of all the taxonomies used in the site</em>
 <strong>classification</strong>: Map&lt;string, <a href="#taxonomy">Taxonomy</a>&gt;</p>
 </code>
-<h2>Page</h2>
+<h2 id="page">Page</h2>
 <p>When rendering a page, these variables are available:</p>
-<code id="page" class="highlighted">
+<code class="highlighted">
 <p><em>// Title of the page</em>
 <strong>title</strong>: string
 <em>// Date when the page was created</em>
@@ -121,10 +121,10 @@ or in the <a href="/config.html">site config</a> can also be used.</p>
 <em>// Can be used to highlight the current page in a list of pages</em>
 <strong>active</strong>: bool</p>
 </code>
-<h3>Pagination</h3>
+<h3 id="pagination">Pagination</h3>
 <p>When the pagination is available, you can use these variables in the pagination section
 (<code>{{#pagination}} ... {{/pagination}}</code>):</p>
-<code id="pagination" class="highlighted">
+<code class="highlighted">
 <p><em>// Number of the current page in the paginated pages</em>
 <strong>current</strong>: integer
 <em>// Number of the previous page in the paginated pages</em>
@@ -136,20 +136,20 @@ or in the <a href="/config.html">site config</a> can also be used.</p>
 <em>// Number of the paginated pages</em>
 <strong>length</strong>: integer</p>
 </code>
-<h3>Ancestors</h3>
+<h3 id="ancestors">Ancestors</h3>
 <p>When the page path is used as a section (<code>{{#path}} ... {{/path}}</code>), it is interpreted
 as a list of ancestors. This makes making breadcrumbs possible.
 For the path segments, the following are available:</p>
-<code id="ancestors" class="highlighted">
+<code class="highlighted">
 <p><em>// Name of the current path segment</em>
 <strong>name</strong>: string
 <em>// The full path up to this segment</em>
 <strong>full</strong>: string</p>
 </code>
-<h3>DateTime</h3>
+<h3 id="datetime">DateTime</h3>
 <p>When the date is available, you can use these variables in the datetime section
 (<code>{{#date}} ... {{/date}}</code>), roughly corresponding to <a href="https://strftime.org/">strftime</a>:</p>
-<code id="picture" class="highlighted">
+<code class="highlighted">
 <p><em>// Year</em>
 <strong>y</strong>: integer
 <em>// Month</em>
@@ -169,10 +169,10 @@ For the path segments, the following are available:</p>
 <em>// First 3 letters of the English weekday name</em>
 <strong>a</strong>: string</p>
 </code>
-<h3>Picture</h3>
+<h3 id="picture">Picture</h3>
 <p>When pictures are available, you can use these variables in the pictures section
 (<code>{{#pictures}} ... {{/pictures}}</code> for a list of them):</p>
-<code id="picture" class="highlighted">
+<code class="highlighted">
 <p><em># Id string of the picture, used for the generated URL in the gallery page</em>
 <strong>pid</strong>: string
 <em># An associated caption of the picture</em>
@@ -186,10 +186,10 @@ For the path segments, the following are available:</p>
 <em>// The full link of the picture, with the site URL included</em>
 <strong>permalink</strong>: string</p>
 </code>
-<h2>Gallery</h2>
+<h2 id="gallery">Gallery</h2>
 <p>When a page contains come picture, the gallery is created. The page of each photo in the gallery
 gets the following variables:</p>
-<code id="gallery" class="highlighted">
+<code class="highlighted">
 <p><em>// The current picture</em>
 <strong>current</strong>: <a href="#picture">Picture</a>
 <em>// The previous picture in the list (the last one for the first one)</em>
@@ -199,9 +199,9 @@ gets the following variables:</p>
 <em>// The parent page, from which this gallery is generated</em>
 <strong>parent</strong>: <a href="#page">Page</a></p>
 </code>
-<h2>Taxonomy</h2>
+<h2 id="taxonomy">Taxonomy</h2>
 <p>Each taxonomy that is rendered gets the following variables:</p>
-<code id="taxonomy" class="highlighted">
+<code class="highlighted">
 <p><em>// Full name of the taxonomy</em>
 <strong>title</strong>: string
 <em>// A short name of the taxonomy, used in the URL</em>
@@ -211,18 +211,18 @@ gets the following variables:</p>
 <em>// A list of keys used in this taxonomy and their corresponding pages</em>
 <strong>keys</strong>: List&lt;<a href="#keypages">KeyPages</a>&gt;</p>
 </code>
-<h3>Key pages</h3>
+<h3 id="keypages">Key pages</h3>
 <p>When keys in the taxonomy are available, you can use these variables in the keys section
 (<code>{{#keys}} ... {{/keys}}</code> for a list of them):</p>
-<code id="keypages" class="highlighted">
+<code class="highlighted">
 <p><em>// Name of this key (also used in the URL of the key page)</em>
 <strong>key</strong>: str
 <em>// All the pages with this key in this taxonomy</em>
 <strong>pages</strong>: List&lt;<a href="#page">Page</a>&gt;</p>
 </code>
-<h2>Taxonomy key</h2>
+<h2 id="taxonomy-key">Taxonomy key</h2>
 <p>When rendering a page of a single taxonomy key, these variables are available:</p>
-<code id="taxonomy-key" class="highlighted">
+<code class="highlighted">
 <p><em>// Name of this key (also used in the URL)</em>
 <strong>title</strong>: string
 <em>// The parent taxonomy where this key belongs to</em>
@@ -232,10 +232,10 @@ gets the following variables:</p>
 <em>// Optional pagination, if enabled for this taxonomy</em>
 <strong>pagination</strong>: Option&lt;<a href="#pagination">Pagination</a>&gt;</p>
 </code>
-<h2>Site</h2>
+<h2 id="site">Site</h2>
 <p>The data of the whole site, available for every page in the site section
 (<code>{{#site}} ... {{/site}}</code>):</p>
-<code id="site" class="highlighted">
+<code class="highlighted">
 <p><em>// The main title of the site</em>
 <strong>title</strong>: string
 <em>// The main URL of the site</em>
@@ -259,10 +259,10 @@ gets the following variables:</p>
 <em>// Are pages without date provided assigned the date of file creation?</em>
 <strong>dates_of_creation</strong>: bool</p>
 </code>
-<h3>Author</h3>
+<h3 id="author">Author</h3>
 <p>Info about the site author, available as a subsection of <a href="#site">site</a>
 (<code>{{#site}}{{#author}} ... {{/author}}{{/site}}</code>):</p>
-<code id="author" class="highlighted">
+<code class="highlighted">
 <p><strong>name</strong>: string
 <strong>uri</strong>: string
 <strong>email</strong>: string

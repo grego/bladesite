@@ -25,7 +25,9 @@ All the data specified on every [page](/pages.html) is available in the serialis
 It contains only the fields that were explicitly set, so no field can be assumed to be
 present or non-present.
 For Rust, Blades also provides a
-[library](https://docs.rs/blades) for automatic serialisation and deserialisation of pages.
+[library](https://docs.rs/blades) for automatic serialisation and deserialisation of pages.  
+(Note that at present, the version on crates.io is a bit outdated. For transform plugins, it is recommended
+to explicitly specify the [git repository](https://github.com/grego/blades) of Blades in `Cargo.toml`.)
 
 ### Example
 An example plugin can be found in the [Blades repository](https://github.com/grego/blades)

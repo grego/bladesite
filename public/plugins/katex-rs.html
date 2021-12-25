@@ -52,7 +52,9 @@ This plugin renders the formulas into HTML using <a href="https://katex.org">KaT
 run with the QuickJS engine.
 Formulas delimited by <code>$</code> are rendered in inline mode and by <math xmlns="http://www.w3.org/1998/Math/MathML" display="inline"></math> in display mode.</p>
 <p>This plugin can be installed as</p>
-<pre><code class="language-bash"><strong>cargo</strong> install blades-katex
+<pre><code class="language-bash"><strong>git</strong> clone https://github.com/grego/blades-katex-rs
+<strong>cd</strong> blades-katex-rs
+<strong>cargo</strong> install --path .
 </code></pre>
 <p>Then, it can be used in Blades as</p>
 <pre><code class="language-toml"><u>[</u><strong>plugins</strong><u>]</u>

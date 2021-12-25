@@ -3,9 +3,11 @@ title = "Getting started"
 weight = 0
 +++
 
-If you have the Rust toolchain installed, you can install Blades from [crates.io](https://crates.io/crates/blades)
+If you have the Rust toolchain installed, you can install Blades from its repository
 ``` sh
-cargo install blades
+git clone https://github.com/grego/blades
+cd blades
+cargo install --path .
 ```
 It is also available on [AUR](https://aur.archlinux.org/packages/blades-bin/).
 

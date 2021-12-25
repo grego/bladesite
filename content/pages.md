@@ -77,7 +77,7 @@ taken = None
 # tags = ["blades", "documentation"]
 ```
 
-## Sections
+## Sections { #sections }
 For pages that are sections, you can additionally specify these variables:
 
 ```toml
@@ -93,7 +93,7 @@ section_template = "section.html"
 sort_by_weight = false
 ```
 
-## Not sections
+## Not sections { #not-sections }
 For pages that are not sections, you can additionally specify these variables
 (defaults are suggested):
 

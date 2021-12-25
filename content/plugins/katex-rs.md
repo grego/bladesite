@@ -13,7 +13,9 @@ Formulas delimited by `$` are rendered in inline mode and by `$$` in display mod
 
 This plugin can be installed as
 ```bash
-cargo install blades-katex
+git clone https://github.com/grego/blades-katex-rs
+cd blades-katex-rs
+cargo install --path .
 ```
 
 Then, it can be used in Blades as

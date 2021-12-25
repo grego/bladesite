@@ -26,10 +26,10 @@ These variables are common for all pages:
 
 </code>
 
-## Page
+## Page { #page }
 When rendering a page, these variables are available:
 
-<code id="page" class="highlighted">
+<code class="highlighted">
 
 *// Title of the page*
 **title**: string
@@ -85,11 +85,11 @@ When rendering a page, these variables are available:
 
 </code>
 
-### Pagination
+### Pagination { #pagination }
 When the pagination is available, you can use these variables in the pagination section
 (`{{#pagination}} ... {{/pagination}}`):
 
-<code id="pagination" class="highlighted">
+<code class="highlighted">
 
 *// Number of the current page in the paginated pages*
 **current**: integer
@@ -104,12 +104,12 @@ When the pagination is available, you can use these variables in the pagination 
 
 </code>
 
-### Ancestors
+### Ancestors { #ancestors }
 When the page path is used as a section (`{{#path}} ... {{/path}}`), it is interpreted
 as a list of ancestors. This makes making breadcrumbs possible.
 For the path segments, the following are available:
 
-<code id="ancestors" class="highlighted">
+<code class="highlighted">
 
 *// Name of the current path segment*
 **name**: string
@@ -118,11 +118,11 @@ For the path segments, the following are available:
 
 </code>
 
-### DateTime
+### DateTime { #datetime }
 When the date is available, you can use these variables in the datetime section
 (`{{#date}} ... {{/date}}`), roughly corresponding to [strftime](https://strftime.org/):
 
-<code id="picture" class="highlighted">
+<code class="highlighted">
 
 *// Year*
 **y**: integer
@@ -145,11 +145,11 @@ When the date is available, you can use these variables in the datetime section
 
 </code>
 
-### Picture
+### Picture { #picture }
 When pictures are available, you can use these variables in the pictures section
 (`{{#pictures}} ... {{/pictures}}` for a list of them):
 
-<code id="picture" class="highlighted">
+<code class="highlighted">
 
 *# Id string of the picture, used for the generated URL in the gallery page*
 **pid**: string
@@ -166,11 +166,11 @@ When pictures are available, you can use these variables in the pictures section
 
 </code>
 
-## Gallery
+## Gallery { #gallery }
 When a page contains come picture, the gallery is created. The page of each photo in the gallery
 gets the following variables:
 
-<code id="gallery" class="highlighted">
+<code class="highlighted">
 
 *// The current picture*
 **current**: [Picture](#picture)
@@ -183,10 +183,10 @@ gets the following variables:
 
 </code>
 
-## Taxonomy
+## Taxonomy { #taxonomy }
 Each taxonomy that is rendered gets the following variables:
 
-<code id="taxonomy" class="highlighted">
+<code class="highlighted">
 
 *// Full name of the taxonomy*
 **title**: string
@@ -199,11 +199,11 @@ Each taxonomy that is rendered gets the following variables:
 
 </code>
 
-### Key pages
+### Key pages { #keypages }
 When keys in the taxonomy are available, you can use these variables in the keys section
 (`{{#keys}} ... {{/keys}}` for a list of them):
 
-<code id="keypages" class="highlighted">
+<code class="highlighted">
 
 *// Name of this key (also used in the URL of the key page)*
 **key**: str
@@ -212,10 +212,10 @@ When keys in the taxonomy are available, you can use these variables in the keys
 
 </code>
 
-## Taxonomy key
+## Taxonomy key { #taxonomy-key } 
 When rendering a page of a single taxonomy key, these variables are available:
 
-<code id="taxonomy-key" class="highlighted">
+<code class="highlighted">
 
 *// Name of this key (also used in the URL)*
 **title**: string
@@ -228,11 +228,11 @@ When rendering a page of a single taxonomy key, these variables are available:
 
 </code>
 
-## Site
+## Site { #site }
 The data of the whole site, available for every page in the site section
 (`{{#site}} ... {{/site}}`):
 
-<code id="site" class="highlighted">
+<code class="highlighted">
 
 *// The main title of the site*
 **title**: string
@@ -260,11 +260,11 @@ The data of the whole site, available for every page in the site section
 
 </code>
 
-### Author
+### Author { #author }
 Info about the site author, available as a subsection of [site](#site)
 (`{{#site}}{{#author}} ... {{/author}}{{/site}}`):
 
-<code id="author" class="highlighted">
+<code class="highlighted">
 
 **name**: string
 **uri**: string
