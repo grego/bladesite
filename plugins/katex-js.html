@@ -49,7 +49,7 @@
         <p>Blades natively supports rendering LaTeX formulas into <a href="https://developer.mozilla.org/docs/Web/MathML">MathML</a>.
 Sadly, Chromium-based browsers don’t support it.
 This plugin renders the formulas into HTML using <a href="https://katex.org">KaTeX</a>.
-Formulas delimited by <code>$</code> are rendered in inline mode and by <math xmlns="http://www.w3.org/1998/Math/MathML" display="inline"></math> in display mode.</p>
+Formulas delimited by <code>$</code> are rendered in inline mode and by <code>$$</code> in display mode.</p>
 <p>Be aware there is a <a href="/plugins/katex-rs.html">Rust version</a> that does the same,
 but faster.</p>
 <p>This plugin can be installed as</p>
@@ -57,7 +57,7 @@ but faster.</p>
 </code></pre>
 <p>Then, it can be used in Blades as</p>
 <pre><code class="language-toml"><u>[</u><strong>plugins</strong><u>]</u>
-<var>transform</var> = <span>&quot;blades-katex&quot;</span>
+<var>transform</var> = <u>[</u><span>&quot;blades-katex&quot;</span><u>]</u>
 </code></pre>
 <p>This plugin is basically a stripped-down version of
 <a href="https://katex.org/docs/autorender.html">auto-render extension</a> for KaTeX.</p>
@@ -67,7 +67,7 @@ but faster.</p>
     <div id="prevnext">
     <a href="/plugins/katex-rs.html">← KaTeX - Rust</a>
     
-    
+    <a href="/plugins/kroki.html">Kroki →</a>
 </div>
 </div>
 </div>
