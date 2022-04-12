@@ -5,7 +5,7 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
 	<meta charset="utf-8">
 	
-	<title>KaTeX - Rust | Blades</title>
+	<title>Kroki | Blades</title>
 	<meta name="author" content="Maros Grego">
 	<meta name="description" content="Blazing fast dead simple static site generator">
 	<meta name="keywords" content="static site generator, fast, rust">
@@ -41,31 +41,64 @@
 <div id="container">
 <div class="full">
     <article id="content">
-        <h1>KaTeX - Rust</h1>
+        <h1>Kroki</h1>
         
         
-        <p>Render math formulas using KaTeX - written in Rust</p>
+        <p>Render code blocks using Kroki as the default service. The algorithm can be specified in the first line.</p>
         
-        <p>Blades natively supports rendering LaTeX formulas into <a href="https://developer.mozilla.org/docs/Web/MathML">MathML</a>.
-Sadly, Chromium-based browsers don’t support it.
-This plugin renders the formulas into HTML using <a href="https://katex.org">KaTeX</a>,
-run with the QuickJS engine.
-Formulas delimited by <code>$</code> are rendered in inline mode and by <code>$$</code> in display mode.</p>
+        <p>A transform plugin that renders code blocks using <a href="https://kroki.io/">Kroki</a> as the default service.
+Code blocks are delimited by <code>```</code> and the algorithm can be specified in the first line.</p>
+<p>You can use any other code blocks as before, too. This plugin replaces only code blocks, which Kroki responses with a successful conversion of a diagram. Otherwise it will print out the code block untouched, so another plugin can handle it.</p>
+<h2>Beware:</h2>
+<p>This implementation currently not support parallel requests to kroki server, so a heavy load of diagrams can lags performance. But we are using a cache, so all requests done only once as long as you do not change the diagramtype or diagram content.</p>
+<h2>Tutorial</h2>
+<p>General use:</p>
+<pre><code class="language-">```[Diagramtype]
+&lt;your diagram code&gt;
+```
+</code></pre>
+<p>Example:</p>
+<pre><code class="language-">```Graphviz
+digraph D {
+  subgraph cluster_p {
+    label = &quot;Kroki&quot;;
+    subgraph cluster_c1 {
+      label = &quot;Server&quot;;
+      Filebeat;
+      subgraph cluster_gc_1 {
+        label = &quot;Docker/Server&quot;;
+        Java;
+      }
+      subgraph cluster_gc_2 {
+        label = &quot;Docker/Mermaid&quot;;
+        &quot;Node.js&quot;;
+        &quot;Puppeteer&quot;;
+        &quot;Chrome&quot;;
+      }
+    }
+    subgraph cluster_c2 {
+      label = &quot;CLI&quot;;
+      Golang;
+    }
+  }
+}
+```
+</code></pre>
 <p>This plugin can be installed as</p>
-<pre><code class="language-bash"><strong>git</strong> clone https://github.com/grego/blades-katex-rs
-<strong>cd</strong> blades-katex-rs
+<pre><code class="language-bash"><strong>git</strong> clone https://github.com/Heiss/blades-kroki
+<strong>cd</strong> blades-kroki
 <strong>cargo</strong> install --path .
 </code></pre>
 <p>Then, it can be used in Blades as</p>
 <pre><code class="language-toml"><u>[</u><strong>plugins</strong><u>]</u>
-<var>transform</var> = <u>[</u><span>&quot;blades-katex&quot;</span><u>]</u>
+<var>transform</var> = <u>[</u><span>&quot;blades-kroki&quot;</span><u>]</u>
 </code></pre>
-        <p><a href="https://github.com/grego/blades-katex-rs" target="_blank">Repository</a></p>
+        <p><a href="https://github.com/Heiss/blades-kroki" target="_blank">Repository</a></p>
     </article>
     <div id="prevnext">
+    <a href="/plugins/katex-js.html">← KaTeX - JavaScript</a>
     
-    <a></a>
-    <a href="/plugins/katex-js.html">KaTeX - JavaScript →</a>
+    
 </div>
 </div>
 </div>

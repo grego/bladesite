@@ -21,7 +21,7 @@ yarn global add https://github.com/grego/blades-katex
 Then, it can be used in Blades as
 ```toml
 [plugins]
-transform = "blades-katex"
+transform = ["blades-katex"]
 ```
 
 This plugin is basically a stripped-down version of

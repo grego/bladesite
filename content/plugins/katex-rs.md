@@ -21,5 +21,5 @@ cargo install --path .
 Then, it can be used in Blades as
 ```toml
 [plugins]
-transform = "blades-katex"
+transform = ["blades-katex"]
 ```

@@ -62,6 +62,12 @@
     
 
     <url>
+        <loc>/plugins/kroki.html</loc>
+        <priority>0.5</priority>
+    </url>
+    
+
+    <url>
         <loc>/themes/casper.html</loc>
         <priority>0.5</priority>
     </url>
