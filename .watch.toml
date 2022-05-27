@@ -9,11 +9,12 @@ path = "content"
 command = "blades build"
 
 [[watch]]
-name = "colocate assets"
-path = "assets"
-command = "blades colocate"
+name = "build site"
+path = "Blades.toml"
+command = "blades build"
 
 [[watch]]
-name = "build site and colocate assets"
-path = "Blades.toml"
-command = "blades all"
+name = "build sass"
+path = "sass"
+command = "sassc -t compressed sass/style.scss public/assets/style.css"
+

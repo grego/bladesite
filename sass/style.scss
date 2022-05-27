@@ -1,22 +1,20 @@
-:root {
-    --dark: #1B4C5C;
-    --main: #D3C377;
-    --red: #B73E40;
-    --link: #548799;
-    --text:  #283C3F;
-    --bg: #F9F9F8;
-    --shadow: #283C3FDD;
-    --literal: #D8F3FD;
-}
+$dark: #1B4C5C;
+$main: #D3C377;
+$red: #B73E40;
+$link: #548799;
+$text:  #283C3F;
+$bg: #F9F9F8;
+$shadow: #283C3FDD;
+$literal: #D8F3FD;
 
 body {
     margin: 0;
     font-family: Roboto, Arial, sans-serif;
     box-sizing: border-box;
-    color: var(--text);
+    color: $text;
     font-size: 1.05em;
     line-height: 1.6;
-    background: var(--dark);
+    background: $dark;
     min-height: 100vh;
     display: flex;
     flex-direction: column;
@@ -29,11 +27,11 @@ body {
 
 a, a:visited {
     transition: color 0.3s;
-    color: var(--link);
+    color: $link;
 }
 
-a:hover, a:active, a:focus, .navlink.active {
-    color: var(--red) !important;
+a:hover, a:active, a:focus, .active {
+    color: $red !important;
     transition: color 0.3s
 }
 
@@ -62,13 +60,13 @@ td:not(:first-of-type) {
 }
 
 code {
-    font-size: 1.1em;
+    font-size: 0.9rem;
 }
 
 .highlighted, pre code {
-    background: var(--text);
+    background: $text;
     display: inline-block;
-    color: var(--bg);
+    color: $bg;
     width: 100%;
     padding: 1em;
     white-space: pre-wrap;
@@ -79,23 +77,23 @@ code {
 }
 
 .highlighted strong, pre code strong, .language-toml var {
-    color: var(--main);
+    color: $main;
     font-weight: bold;
     font-style: normal;
 }
 
 .language-toml strong {
-    color: var(--red);
+    color: $red;
 }
 
 .language-toml em {
     font-weight: bold;
     font-style: normal;
-    color: var(--red);
+    color: $red;
 }
 
 .highlighted em, pre code i {
-    color: var(--link);
+    color: $link;
 }
 
 pre code u {
@@ -104,7 +102,7 @@ pre code u {
 }
 
 pre code span, pre code var {
-    color: var(--literal);
+    color: $literal;
     font-style: normal;
 }
 
@@ -114,18 +112,17 @@ ul {
 }
 
 #topbar {
+    padding: 0.3em;
+    font-size: 2em;
+    background: $dark;
+    color: $main;
+    position: relative;
+    width: 100%;
+    max-width: 1024px;
+    overflow-x: clip;
+    margin: auto;
     display: flex;
     justify-content: space-between;
-    padding: 0.7rem 1rem 0.5rem;
-    font-size: 2em;
-    height: 4.2rem;
-    background: var(--dark);
-    color: var(--main);
-    position: relative;
-    width: 100vw;
-    max-width: 1024px;
-    /*! margin: auto; */
-    overflow-x: clip;
     flex-shrink: 0;
 }
 
@@ -163,7 +160,7 @@ ul {
 }
 
 #logo a {
-    color: var(--main);
+    color: $main;
     text-decoration: none;
 }
 
@@ -174,7 +171,7 @@ ul {
 	height: 3rem;
 	cursor: pointer;
 	z-index: 11;
-	background: var(--dark);
+	background: $dark;
 	border: none;
 	transition: background 0.5s cubic-bezier(0.77,0.2,0.05,1.0);
 	top: 0.6rem;
@@ -192,7 +189,7 @@ ul {
 	top: 1.35rem;
     left: 1rem;
 	
-	background: var(--main);
+	background: $main;
 	
 	z-index: 2;
 	content: "";
@@ -232,7 +229,7 @@ ul {
 
 #nav {
     z-index: 6;
-    background: var(--dark);
+    background: $dark;
     width: 100vw;
     margin-bottom: 0;
     text-align: left;
@@ -240,7 +237,7 @@ ul {
 
     transform: translateX(100%);
 	display: flex;
-	color: var(--main);
+	color: $main;
 	align-items: center;
 	flex-direction: column;
 	padding: 5rem 2rem;
@@ -253,11 +250,11 @@ ul {
 }
 
 .navlink, .navlink:visited {
-	font-size: 1.1em;
+	font-size: 1.1rem;
 	text-align: center;
 	text-decoration: none;
 	margin: 0.6em 0.8em;
-	color: var(--main);
+	color: $main;
 }
 
 #container {
@@ -269,6 +266,7 @@ ul {
     justify-content: flex-end;
     z-index: 2;
     flex-grow: 1;
+    margin: auto;
     margin-bottom: 1em;
 }
 
@@ -280,14 +278,14 @@ ul {
 
 #pagetitle {
     text-align: center;
-    color: var(--main);
+    color: $main;
 }
 
 .shadowed {
     padding: 1em 2em;
-    border: 1px solid var(--text);
-    box-shadow: 0.5em 0.5em var(--shadow);
-    background: var(--bg);
+    border: 1px solid $text;
+    box-shadow: 0.5em 0.5em $shadow;
+    background: $bg;
 }
 
 #navwrap {
@@ -297,6 +295,7 @@ ul {
 .pagelink {
     text-decoration: none;
     margin: 0.5em 0;
+    display: block;
 }
 
 .active {
@@ -305,26 +304,27 @@ ul {
 
 .active::before {
     content: "// ";
-    color: var(--main);
+    color: $main;
 }
 
 #content {
     width: 100%;
     max-width: 1024px;
     padding: 1em 1.5em;
-    background: var(--bg);
+    background: $bg;
 }
 
 #prevnext {
     display: flex;
     justify-content: space-between;
     margin: 1.6em 1em 1em;
-    background: var(--dark);
+    background: $dark;
     font-size: 1.1em;
+    height: 1.2em;
 }
 
 #prevnext a {
-    color: var(--main);
+    color: $main;
     text-decoration: none;
 }
 
@@ -336,15 +336,17 @@ ul {
 #footer {
     width: 100%;
     text-align: center;
-    color: var(--bg);
+    color: $bg;
     font-size: 0.8em;
     padding: 0.8em 1em;
     flex-shrink: 0;
+    bottom: 0;
 }
 
 #footer a {
-    color: var(--main);
+    color: $main;
     text-decoration: none;
+    margin: auto;
 }
 
 #commands p {
@@ -359,23 +361,32 @@ ul {
 }
 
 #theme-grid {
-    display: grid;
+    display: flex;
+    flex-direction: column;
 }
 
 .theme {
+    display: block;
     margin: 1em;
     z-index: 100;
     text-decoration: none;
-    color: var(--text) !important;
+    color: $text !important;
 }
 
 .theme:hover p, .theme:active p {
-    color: var(--text);
+    color: $text;
+}
+
+.left {
+    float: left;
+}
+
+.right {
+    float: right;
 }
 
 @media screen and (min-width: 900px) {
     #topbar {
-        /*! position: fixed; */
         justify-content: right;
     }
 
@@ -397,13 +408,13 @@ ul {
     }
 
     #container {
-        /*! padding-top: 4.2rem; */
         flex-direction: row;
     }
 
     #navwrap {
         width: 256px;
         margin-right: 4em;
+        float: right;
     }
     
     #pagesnav {
@@ -423,8 +434,13 @@ ul {
     }
 
     #theme-grid {
-        grid-template-columns: 50% 50%;
-        background: var(--dark);
+        flex-direction: row;
+        flex-wrap: wrap;
+        background: $dark;
+    }
+
+    .theme {
+        width: calc(50% - 2em);
     }
 
     pre code {
@@ -433,6 +449,10 @@ ul {
 
     .highlighted {
         padding: 1em 1em 1em 2.4em;
+    }
+
+    .full {
+        max-width: 780px;
     }
 }
 
