@@ -71,7 +71,7 @@ or in the <a href="/config.html">site config</a> can also be used.</p>
 <em>// A dictionary of all the taxonomies used in the site</em>
 <strong>classification</strong>: Map&lt;string, <a href="#taxonomy">Taxonomy</a>&gt;</p>
 </code>
-<h2>Page { #page }</h2>
+<h2 id="page">Page</h2>
 <p>When rendering a page, these variables are available:</p>
 <code class="highlighted">
 <p><em>// Title of the page</em>
@@ -121,7 +121,7 @@ or in the <a href="/config.html">site config</a> can also be used.</p>
 <em>// Can be used to highlight the current page in a list of pages</em>
 <strong>active</strong>: bool</p>
 </code>
-<h3>Pagination { #pagination }</h3>
+<h3 id="pagination">Pagination</h3>
 <p>When the pagination is available, you can use these variables in the pagination section
 (<code>{{#pagination}} ... {{/pagination}}</code>):</p>
 <code class="highlighted">
@@ -136,7 +136,7 @@ or in the <a href="/config.html">site config</a> can also be used.</p>
 <em>// Number of the paginated pages</em>
 <strong>length</strong>: integer</p>
 </code>
-<h3>Ancestors { #ancestors }</h3>
+<h3 id="ancestors">Ancestors</h3>
 <p>When the page path is used as a section (<code>{{#path}} ... {{/path}}</code>), it is interpreted
 as a list of ancestors. This makes making breadcrumbs possible.
 For the path segments, the following are available:</p>
@@ -146,7 +146,7 @@ For the path segments, the following are available:</p>
 <em>// The full path up to this segment</em>
 <strong>full</strong>: string</p>
 </code>
-<h3>DateTime { #datetime }</h3>
+<h3 id="datetime">DateTime</h3>
 <p>When the date is available, you can use these variables in the datetime section
 (<code>{{#date}} ... {{/date}}</code>), roughly corresponding to <a href="https://strftime.org/">strftime</a>:</p>
 <code class="highlighted">
@@ -169,7 +169,7 @@ For the path segments, the following are available:</p>
 <em>// First 3 letters of the English weekday name</em>
 <strong>a</strong>: string</p>
 </code>
-<h3>Picture { #picture }</h3>
+<h3 id="picture">Picture</h3>
 <p>When pictures are available, you can use these variables in the pictures section
 (<code>{{#pictures}} ... {{/pictures}}</code> for a list of them):</p>
 <code class="highlighted">
@@ -186,7 +186,7 @@ For the path segments, the following are available:</p>
 <em>// The full link of the picture, with the site URL included</em>
 <strong>permalink</strong>: string</p>
 </code>
-<h2>Gallery { #gallery }</h2>
+<h2 id="gallery">Gallery</h2>
 <p>When a page contains come picture, the gallery is created. The page of each photo in the gallery
 gets the following variables:</p>
 <code class="highlighted">
@@ -199,7 +199,7 @@ gets the following variables:</p>
 <em>// The parent page, from which this gallery is generated</em>
 <strong>parent</strong>: <a href="#page">Page</a></p>
 </code>
-<h2>Taxonomy { #taxonomy }</h2>
+<h2 id="taxonomy">Taxonomy</h2>
 <p>Each taxonomy that is rendered gets the following variables:</p>
 <code class="highlighted">
 <p><em>// Full name of the taxonomy</em>
@@ -211,7 +211,7 @@ gets the following variables:</p>
 <em>// A list of keys used in this taxonomy and their corresponding pages</em>
 <strong>keys</strong>: List&lt;<a href="#keypages">KeyPages</a>&gt;</p>
 </code>
-<h3>Key pages { #keypages }</h3>
+<h3 id="keypages">Key pages</h3>
 <p>When keys in the taxonomy are available, you can use these variables in the keys section
 (<code>{{#keys}} ... {{/keys}}</code> for a list of them):</p>
 <code class="highlighted">
@@ -220,7 +220,7 @@ gets the following variables:</p>
 <em>// All the pages with this key in this taxonomy</em>
 <strong>pages</strong>: List&lt;<a href="#page">Page</a>&gt;</p>
 </code>
-<h2>Taxonomy key { #taxonomy-key }</h2>
+<h2 id="taxonomy-key">Taxonomy key</h2>
 <p>When rendering a page of a single taxonomy key, these variables are available:</p>
 <code class="highlighted">
 <p><em>// Name of this key (also used in the URL)</em>
@@ -232,7 +232,7 @@ gets the following variables:</p>
 <em>// Optional pagination, if enabled for this taxonomy</em>
 <strong>pagination</strong>: Option&lt;<a href="#pagination">Pagination</a>&gt;</p>
 </code>
-<h2>Site { #site }</h2>
+<h2 id="site">Site</h2>
 <p>The data of the whole site, available for every page in the site section
 (<code>{{#site}} ... {{/site}}</code>):</p>
 <code class="highlighted">
@@ -259,7 +259,7 @@ gets the following variables:</p>
 <em>// Are pages without date provided assigned the date of file creation?</em>
 <strong>dates_of_creation</strong>: bool</p>
 </code>
-<h3>Author { #author }</h3>
+<h3 id="author">Author</h3>
 <p>Info about the site author, available as a subsection of <a href="#site">site</a>
 (<code>{{#site}}{{#author}} ... {{/author}}{{/site}}</code>):</p>
 <code class="highlighted">
@@ -273,9 +273,9 @@ code of <a href="https://github.com/grego/blades">this site</a>, or of various
 <a href="/themes/index.html">themes</a>.</p>
 </article>
     <div id="prevnext">
-    <a href="/pages.html">← Pages</a>
+    <a class="left" href="/pages.html">← Pages</a>
     
-    <a href="/making-plugins.html">Making plugins →</a>
+    <a class="right" href="/making-plugins.html">Making plugins →</a>
 </div>
 </div>
 </div>
