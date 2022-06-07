@@ -24,10 +24,16 @@ The plugins can be set up in the [config](/config.html).
 All the data specified on every [page](/pages.html) is available in the serialised list of pages.
 It contains only the fields that were explicitly set, so no field can be assumed to be
 present or non-present.
+
 For Rust, Blades also provides a
-[library](https://docs.rs/blades) for automatic serialisation and deserialisation of pages.  
-(Note that at present, the version on crates.io is a bit outdated. For transform plugins, it is recommended
-to explicitly specify the [git repository](https://github.com/grego/blades) of Blades in `Cargo.toml`.)
+[library](https://docs.rs/blades) for automatic serialisation and deserialisation of pages.
+Currently, Cargo doesn't support binary-only dependencies. As such, these dependencies are behind
+the `bin` feature gate, which is enabled by default. When using Blades as a library, they are not
+necessary, so it is recommended to import blades with `default_features = false`.
+
+```toml
+blades = { version = "0.3", default_features = false }
+```
 
 ### Example
 An example plugin can be found in the [Blades repository](https://github.com/grego/blades)

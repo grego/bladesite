@@ -73,11 +73,14 @@ on per-page basis</li>
 <h3>Serialised page data</h3>
 <p>All the data specified on every <a href="/pages.html">page</a> is available in the serialised list of pages.
 It contains only the fields that were explicitly set, so no field can be assumed to be
-present or non-present.
-For Rust, Blades also provides a
-<a href="https://docs.rs/blades">library</a> for automatic serialisation and deserialisation of pages.<br />
-(Note that at present, the version on crates.io is a bit outdated. For transform plugins, it is recommended
-to explicitly specify the <a href="https://github.com/grego/blades">git repository</a> of Blades in <code>Cargo.toml</code>.)</p>
+present or non-present.</p>
+<p>For Rust, Blades also provides a
+<a href="https://docs.rs/blades">library</a> for automatic serialisation and deserialisation of pages.
+Currently, Cargo doesn’t support binary-only dependencies. As such, these dependencies are behind
+the <code>bin</code> feature gate, which is enabled by default. When using Blades as a library, they are not
+necessary, so it is recommended to import blades with <code>default_features = false</code>.</p>
+<pre><code class="language-toml"><var>blades</var> = <u>{</u> <var>version</var> = <span>&quot;0.3&quot;</span>, <var>default_features</var> = <span>false</span> <u>}</u>
+</code></pre>
 <h3>Example</h3>
 <p>An example plugin can be found in the <a href="https://github.com/grego/blades">Blades repository</a>
 in the <code>examples</code> directory.
