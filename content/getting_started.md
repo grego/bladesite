@@ -3,6 +3,14 @@ title = "Getting started"
 weight = 0
 +++
 
+## MacOS
+
+Using the package manager [MacPorts](https://www.macports.org)
+```sh
+sudo port install blades
+```
+
+## From Source
 If you have the Rust toolchain installed, you can install Blades from [crates.io](https://crates.io/crates/blades)
 ```sh
 cargo install blades
