@@ -39,6 +39,10 @@ a:hover, a:active, a:focus, .active {
     content: ""
 }
 
+h1 {
+    font-size: 2em;
+}
+
 h2 {
     margin-bottom: 0
 }
@@ -276,11 +280,6 @@ ul {
     margin-top: 0.5em;
 }
 
-#pagetitle {
-    text-align: center;
-    color: $main;
-}
-
 .shadowed {
     padding: 1em 2em;
     border: 1px solid $text;
@@ -422,10 +421,6 @@ ul {
         position: fixed;
         margin-left: 1em;
         z-index: 6;
-    }
-
-    #pagetitle {
-        display: none;
     }
 
     #content {
