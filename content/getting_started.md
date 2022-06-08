@@ -3,6 +3,9 @@ title = "Getting started"
 weight = 0
 +++
 
+## Installation
+
+### From Source
 With the Rust toolchain installed, you can install Blades from [crates.io](https://crates.io/crates/blades)
 ```sh
 cargo install blades
@@ -15,14 +18,15 @@ cd blades
 cargo install --path .
 ```
 
-## macOS
+### macOS
 
 Using the package manager [MacPorts](https://www.macports.org)
 ```sh
 sudo port install blades
 ```
 
-Then, you can run the executable `blades` with the following subcommands:
+## Blades Commands
+Once installed, you can run the executable `blades` with the following subcommands:
 <div id="commands">
 
 `init` Initialise the site in the current directory, creating the basic files and folders
