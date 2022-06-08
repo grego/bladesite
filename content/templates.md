@@ -276,5 +276,5 @@ Info about the site author, available as a subsection of [site](#site)
 
 
 For an actual example of templates in Blades, you can take a look at the
-code of [this site](https://github.com/grego/blades), or of various
+code of [this site](https://github.com/grego/bladesite), or of various
 [themes](/themes/index.html).
