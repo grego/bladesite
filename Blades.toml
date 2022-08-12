@@ -1,7 +1,9 @@
 title = "Blades"
 description = "Blazing fast dead simple static site generator"
 keywords = "static site generator, fast, rust"
-lang = "en-gb"
+author = "Maroš Grego"
+
+lang = "en-us"
 logo = "<span class=\"blades-logo\"></span>"
 
 atom = false
@@ -15,7 +17,4 @@ Created with **<span class="blades-logo"></span>blades**
 by [Maroš Grego](https://grego.site).
 No JavaScript used.
 """
-
-[author]
-name = "Maros Grego"
 
