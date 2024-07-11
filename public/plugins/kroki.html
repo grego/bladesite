@@ -53,12 +53,12 @@ Code blocks are delimited by <code>```</code> and the algorithm can be specified
 <p>This implementation currently not support parallel requests to kroki server, so a heavy load of diagrams can lags performance. But we are using a cache, so all requests done only once as long as you do not change the diagramtype or diagram content.</p>
 <h2>Tutorial</h2>
 <p>General use:</p>
-<pre><code class="language-">```[Diagramtype]
+<pre><code>```[Diagramtype]
 &lt;your diagram code&gt;
 ```
 </code></pre>
 <p>Example:</p>
-<pre><code class="language-">```Graphviz
+<pre><code>```Graphviz
 digraph D {
   subgraph cluster_p {
     label = &quot;Kroki&quot;;

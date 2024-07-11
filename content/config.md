@@ -41,11 +41,8 @@ output_dir = "public"
 # A subdirectory of the output directory where the assets are copied to
 assets = "assets"
 
-[author]
-name = ""
-uri = ""
+author = ""
 email = ""
-avatar = ""
 
 # A table of tables where you can specify some data about taxonomies
 [taxonomies]
